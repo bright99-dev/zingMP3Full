@@ -3,7 +3,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 90px;
+    height: var(--height-player);
     display: grid;
     grid-template-columns: 3fr 4fr 3fr;
     align-items: center;
@@ -124,6 +124,11 @@
         display: none !important;
     }
     .wrapper {
-        grid-template-columns: 1fr 1fr !important;
+        grid-template-columns: 4fr 6fr !important;
+    }
+}
+@media screen and (max-width: 576px) {
+    .wrapper {
+        grid-template-columns: 1fr !important;
     }
 }
