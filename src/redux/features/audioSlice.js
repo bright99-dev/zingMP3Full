@@ -5,6 +5,7 @@ const initialState = {
     isPlay: false,
     isRadioPlay: false,
     isMute: false,
+    isExtendSidebar: false,
     isDisabled: JSON.parse(localStorage.getItem('disabled')) || false,
     songId: localStorage.getItem('songId') || '',
     playlistId: localStorage.getItem('playlistId') || '',
@@ -40,6 +41,9 @@ const audioSlice = createSlice({
         },
         setIsRadioPlay: (state, action) => {
             state.isRadioPlay = action.payload;
+        },
+        setIsExtendSidebar: (state, action) => {
+            state.isExtendSidebar = action.payload;
         },
         setIsDisabled: (state, action) => {
             state.isDisabled = action.payload;
@@ -114,6 +118,7 @@ const audioSlice = createSlice({
 export const {
     setIsPlay,
     setIsDisabled,
+    setIsExtendSidebar,
     changeIconVolume,
     setSongId,
     setInfoSongPlayer,

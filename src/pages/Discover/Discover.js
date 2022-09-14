@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import request from '~/utils/httpRequest';
 import { useDispatch, useSelector } from 'react-redux';
+import request from '~/utils/httpRequest';
 import Carousel from '~/components/Carousel';
 import Loading from '../Loading';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
+import Button from '~/components/Buttons/Button';
+import SongItemShort from '~/components/SongItemShort';
+import Album from './components/Album';
 import classNames from 'classnames/bind';
 import styles from './Discover.module.scss';
-import SongItem from '~/components/SongItem';
 import {
     setSrcAudio,
     setCurrentTime,
@@ -22,9 +24,6 @@ import {
     setCurrentIndexSongRandom,
     setIsDisabled,
 } from '~/redux/features/audioSlice';
-import Button from '~/components/Buttons/Button';
-import SongItemShort from '~/components/SongItemShort';
-import Album from './components/Album';
 
 const cx = classNames.bind(styles);
 
@@ -37,7 +36,6 @@ function Decover() {
 
     const dispatch = useDispatch();
     const isRandom = useSelector((state) => state.audio.isRandom);
-    const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);
     const shuffle = (sourceArray) => {
         for (var i = 0; i < sourceArray.length - 1; i++) {
@@ -96,7 +94,7 @@ function Decover() {
 
     useEffect(() => {
         request.get('/home').then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setIsLoading(false);
             setResult(res.data.items);
             document.title = 'ZingMP3 | Nghe tải nhạc chất lượng cao trên desktop, mobile và ...';

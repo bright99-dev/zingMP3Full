@@ -12,6 +12,7 @@ import {
     setPlaylistSong,
     setSongId,
     setSrcAudio,
+    setIsDisabled,
 } from '~/redux/features/audioSlice';
 
 const cx = classNames.bind(styles);
@@ -28,6 +29,7 @@ function CarouselItem({ className, data }) {
             dispatch(setPlaylistId(''));
             dispatch(setPlaylistSong([]));
             dispatch(setPlaylistRandom([]));
+            dispatch(setIsDisabled(false));
         });
     };
 

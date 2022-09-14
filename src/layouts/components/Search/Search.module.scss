@@ -59,7 +59,7 @@
         z-index: 5;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
-        z-index: 999999999 !important;
+        z-index: 999 !important;
         .search-title {
             font-size: 14px;
             color: #fff;
@@ -74,9 +74,9 @@
         border-radius: 10px;
     }
 }
-@media screen and (max-width: 1000px) {
-    .search-result {
-        min-width: 400px !important;
-        max-width: 400px !important;
-    }
-}
+// @media screen and (max-width: 1000px) {
+//     .search-result {
+//         min-width: 400px !important;
+//         max-width: 400px !important;
+//     }
+// }

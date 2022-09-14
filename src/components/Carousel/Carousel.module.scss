@@ -1,10 +1,5 @@
 .wrapper {
-    width: calc(100vw - 240px);
+    width: calc(100vw - var(--width-sidebar));
     padding: var(--offset-padding-page);
     margin-bottom: 40px;
-}
-@media screen and (max-width: 1200px) {
-    .wrapper {
-        width: calc(100vw - 70px);
-    }
 }

@@ -1,16 +1,15 @@
 /* eslint-disable no-unused-vars */
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 import request from '~/utils/httpRequest';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
-
 import classNames from 'classnames/bind';
 import styles from './DetailPlaylist.module.scss';
 import Button from '~/components/Buttons';
 import SongItem from '~/components/SongItem';
-
-import { useSelector, useDispatch } from 'react-redux';
+import Loading from '../Loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import {
     setSongId,
     setInfoSongPlayer,
@@ -26,7 +25,6 @@ import {
     setSrcAudio,
     setIsDisabled,
 } from '~/redux/features/audioSlice';
-import Loading from '../Loading';
 
 const cx = classNames.bind(styles);
 
@@ -34,10 +32,8 @@ function DetailPlaylist() {
     const dispatch = useDispatch();
     const location = useLocation();
     const { id, onPlay } = location.state;
-
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     const isRandom = useSelector((state) => state.audio.isRandom);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);

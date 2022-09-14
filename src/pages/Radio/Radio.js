@@ -11,11 +11,11 @@ function Radio() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        // console.log(res.data.items[0]);
         request.get(`/radio`).then((res) => {
-            console.log(res.data.items[0]);
             setData(res.data.items[0]);
             setIsLoading(false);
-            document.title = 'Radio';
+            document.title = 'Radio  | Xem bài hát, album, MV đang hot hiện tại';
         });
     }, []);
     if (isLoading) {

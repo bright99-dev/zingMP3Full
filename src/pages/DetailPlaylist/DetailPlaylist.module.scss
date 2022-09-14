@@ -90,7 +90,7 @@
         }
     }
     .content {
-        height: calc(100vh - 70px - 90px);
+        height: calc(100vh - var(--height-logo) - var(--height-player));
         overflow-y: scroll;
         .sort-description {
             font-size: 14px;

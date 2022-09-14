@@ -1,13 +1,17 @@
-import { faAngleRight, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Mymusic.module.scss';
 import Button from '~/components/Buttons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function Mymusic({ children }) {
+    useEffect(() => {
+        document.title = 'Nhạc cá nhân | Xem bài hát, album, MV đang hot hiện tại';
+    }, []);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>

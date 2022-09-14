@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import request from '~/utils/httpRequest';
-
 import Loading from '../Loading';
-
 import classNames from 'classnames/bind';
 import styles from './Artist.module.scss';
 import Button from '~/components/Buttons';
 import SongItem from '~/components/SongItem';
+import Section from '~/components/Section';
+import Item from '~/components/Item';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import {
     setIsPlay,
     setPlaylistSong,
@@ -18,7 +18,6 @@ import {
     setInfoSongPlayer,
     setIsRadioPlay,
     setRandom,
-    setPrevSong,
     setPlaylistId,
     setCurrentTime,
     setSrcAudio,
@@ -27,8 +26,6 @@ import {
     setCurrnetIndexSong,
     setIsDisabled,
 } from '~/redux/features/audioSlice';
-import Section from '~/components/Section';
-import Item from '~/components/Item';
 
 const cx = classNames.bind(styles);
 
@@ -39,8 +36,6 @@ function Artist() {
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [songs, setSongs] = useState([]);
-    const [isFullList, setIsFullList] = useState(false);
-    const [contentBtn, setContentBtn] = useState('Xem Tất Cả');
     const isRandom = useSelector((state) => state.audio.isRandom);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);

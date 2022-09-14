@@ -28,6 +28,35 @@
 
     --offset-top: 70px;
     --offset-padding-page: 0 4%;
+
+    --height-logo: 70px;
+    --width-sidebar: 240px;
+    --width-sidebar-extend: 240px;
+    --height-item-sidebar: 37px;
+    --height-item-sidebar-extend: 41px;
+    --height-option-sidebar: 54px;
+    --height-line-divider-sidebar: 22px;
+    --height-line-divider-sidebar-extend: 44px;
+    --height-player: 90px;
+    --width-search-fields: 540px;
+}
+
+@media screen and (max-width: 1200px) {
+    :root {
+        --width-sidebar: 70px;
+        --height-item-sidebar: 51px;
+        --width-sidebar: 70px;
+    }
+}
+@media screen and (max-width: 876px) {
+    :root {
+        --offset-padding-page: 0 2%;
+    }
+}
+@media screen and (max-width: 576px) {
+    :root {
+        --width-sidebar: 0px;
+    }
 }
 html {
     color: var(--text-color);

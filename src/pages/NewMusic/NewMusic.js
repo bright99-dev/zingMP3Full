@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import request from '~/utils/httpRequest';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
+import request from '~/utils/httpRequest';
 import styles from './NewMusic.module.scss';
 import SongItem from '~/components/SongItem';
 import Button from '~/components/Buttons';
 import Loading from '../Loading';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import {
     setSrcAudio,
     setCurrentTime,
@@ -84,10 +83,10 @@ function NewMusic() {
 
     useEffect(() => {
         request.get('/chart/new-release').then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setData(res.data);
             setIsLoading(false);
-            document.title = res.data.title;
+            document.title = '#zingchart tuần, #zingchart Zing - Bài hát';
         });
     }, []);
     if (isLoading) {

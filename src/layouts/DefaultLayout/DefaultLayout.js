@@ -4,17 +4,24 @@ import Player from '~/layouts/components/Player';
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setIsExtendSidebar } from '~/redux/features/audioSlice';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
     const [sticky, setSticky] = useState(false);
+    const dispatch = useDispatch();
     const handleScroll = (e) => {
         if (e.currentTarget.scrollTop) {
             setSticky(true);
         } else {
             setSticky(false);
         }
+    };
+    const handleHiddenOverlay = () => {
+        dispatch(setIsExtendSidebar(false));
     };
     return (
         <div className={cx('wrapper')}>
@@ -26,7 +33,7 @@ function DefaultLayout({ children }) {
                     <div className={cx('header', sticky && 'sticky')}>
                         <Header />
                     </div>
-                    <div className={cx('page')} onScroll={handleScroll}>
+                    <div className={cx('page')} onScroll={handleScroll} onClick={handleHiddenOverlay}>
                         {children}
                     </div>
                 </div>

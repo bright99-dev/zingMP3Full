@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaystation } from '@fortawesome/free-brands-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
 import 'tippy.js/dist/tippy.css';
 import {
     faChartLine,
+    faChevronLeft,
+    faChevronRight,
     faClapperboard,
     faCloud,
     faCompactDisc,
@@ -18,13 +21,20 @@ import {
 import { SidebarItem } from './Menu';
 import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
+import Button from '~/components/Buttons/Button';
+import { setIsExtendSidebar } from '~/redux/features/audioSlice';
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+    const dispatch = useDispatch();
+    const isExtendSidebar = useSelector((state) => state.audio.isExtendSidebar);
+    const handleExtend = () => {
+        dispatch(setIsExtendSidebar(!isExtendSidebar));
+    };
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', isExtendSidebar && 'extend-sidebar')}>
             <div className={cx('sidebar-top')}>
-                <Link className={cx('title')} to="/"></Link>
+                <Link className={cx('logo')} to="/"></Link>
                 <SidebarItem title="Cá nhân" to="/mymusic" play="true" icon={<FontAwesomeIcon icon={faFolder} />} />
                 <SidebarItem title="Khám phá" to="/" icon={<FontAwesomeIcon icon={faCompactDisc} />} />
                 <SidebarItem
@@ -93,8 +103,18 @@ function Sidebar() {
                 <span className={cx('plus')}>+</span>
                 <span>Taọ playlist mới</span>
             </div>
+            <div className={cx('btn-extend')}>
+                {isExtendSidebar ? (
+                    <Button circlem={true} onClick={handleExtend}>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </Button>
+                ) : (
+                    <Button circlem={true} onClick={handleExtend}>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </Button>
+                )}
+            </div>
         </div>
     );
 }
-
 export default Sidebar;

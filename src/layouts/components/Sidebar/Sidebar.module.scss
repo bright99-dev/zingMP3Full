@@ -1,7 +1,8 @@
 .wrapper {
-    width: 240px;
+    width: var(--width-sidebar);
     height: 100vh;
     background-color: #2a213a;
+    transition: all 0.3s;
     .sidebar-top,
     .sidebar-bottom,
     .library {
@@ -10,10 +11,9 @@
         font-size: 13px;
         font-weight: 700;
         line-height: 19.5px;
-        width: 240px;
     }
     .line {
-        height: 22px;
+        height: var(--height-line-divider-sidebar);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,11 +23,9 @@
         }
     }
     .sidebar-top {
-        height: calc(185px + 70px);
-        .title {
+        .logo {
             flex-shrink: 0;
-            height: 70px;
-            width: 100%;
+            height: var(--height-logo);
             background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg');
             background-size: 50%;
             background-repeat: no-repeat;
@@ -43,7 +41,13 @@
     }
     .sidebar-bottom {
         width: 100%;
-        height: calc(100vh - (70px + 185px + 70px + 22px + 20px + 54px));
+        height: calc(
+            100vh -
+                (
+                    var(--height-logo) + (var(--height-item-sidebar) * 5) + var(--height-line-divider-sidebar) +
+                        var(--height-option-sidebar) + var(--height-player)
+                )
+        );
         overflow-y: overlay;
         overflow-x: hidden;
         .box-update {
@@ -109,7 +113,7 @@
     }
 
     .sidebar-addList {
-        height: 54px;
+        height: var(--height-option-sidebar);
         border-top: 1px solid var(--bg-hover-color);
         color: #fff;
         font-size: 14px;
@@ -124,32 +128,70 @@
             font-weight: 300;
         }
     }
+    .btn-extend {
+        height: var(--height-option-sidebar);
+        width: var(--width-sidebar);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+}
+.wrapper.extend-sidebar {
+    width: var(--width-sidebar-extend);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: all 0.3s;
+    .logo {
+        width: var(--width-sidebar-extend) !important;
+        background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg') !important;
+        background-size: 50% !important;
+        background-position: 25% 50% !important;
+    }
+    .sidebar-bottom {
+        width: 100%;
+        height: calc(
+            100vh -
+                (
+                    var(--height-logo) + (var(--height-item-sidebar-extend) * 5) +
+                        var(--height-line-divider-sidebar-extend) + var(--height-option-sidebar) + var(--height-player)
+                )
+        );
+    }
+    .line {
+        height: var(--height-line-divider-sidebar-extend) !important;
+        .inner-line {
+            width: 80% !important;
+        }
+    }
+    .btn-extend {
+        width: var(--width-sidebar-extend);
+        justify-content: flex-end;
+        padding-right: 20px !important;
+    }
 }
 @media screen and (max-width: 1200px) {
     .wrapper {
+        .logo {
+            width: var(--width-sidebar) !important;
+            background-image: url('https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.29/static/media/icon_zing_mp3_60.f6b51045.svg') !important;
+            background-position: 50% 50% !important;
+            position: relative;
+            background-size: 65% !important;
+        }
         .box-update,
         .library-title,
         .sidebar-addList {
             display: none !important;
         }
-        .line {
-            width: 70px;
-            .inner-line {
-                width: 60%;
-            }
+        .inner-line {
+            width: 60%;
         }
-        .title {
-            background-image: url('https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.29/static/media/icon_zing_mp3_60.f6b51045.svg') !important;
-            background-size: 20% !important;
-            background-repeat: no-repeat;
-            background-position: 5% 50% !important;
-        }
-        .sidebar-top {
-            height: calc(255px + 70px);
-        }
-        .sidebar-bottom {
-            width: 100%;
-            height: calc(100vh - (70px + 255px + 70px + 22px + 20px));
+        .btn-extend {
+            display: flex;
         }
     }
 }

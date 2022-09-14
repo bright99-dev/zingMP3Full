@@ -3,20 +3,21 @@
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
+    background-color: var(--primary);
     .container {
         width: 100%;
-        height: calc(100vh - 90px);
+        height: calc(100vh - var(--height-player));
         display: flex;
         .sidebar {
-            width: 240px;
+            width: var(--width-sidebar);
         }
         .header {
-            width: calc(100% - 240px);
-            height: 70px;
+            width: calc(100% - var(--width-sidebar));
+            height: var(--height-logo);
             background-color: #ccc;
             background-color: transparent;
             position: fixed;
-            z-index: 1000;
+            z-index: 99;
             &.sticky {
                 background-color: var(--layout-bg) !important;
             }
@@ -29,6 +30,7 @@
                 background-color: var(--layout-bg);
                 flex: 1;
                 overflow-y: overlay;
+                position: relative;
             }
             .page::-webkit-scrollbar {
                 width: 4px;
@@ -44,13 +46,5 @@
                 }
             }
         }
-    }
-}
-@media screen and (max-width: 1200px) {
-    .sidebar {
-        width: 70px !important;
-    }
-    .header {
-        width: calc(100% - 70px) !important;
     }
 }

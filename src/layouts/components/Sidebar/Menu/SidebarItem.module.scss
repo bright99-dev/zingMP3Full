@@ -3,13 +3,17 @@
     text-decoration: none;
     color: var(--text-color);
     border-left: 3px solid transparent;
-    width: 240px;
+    width: 100%;
     display: inline-block;
     .icon {
         font-size: 20px !important;
     }
     .title {
         padding-left: 10px;
+        &.show {
+            display: flex !important;
+            justify-content: flex-start !important;
+        }
     }
     .icon-play {
         float: right;
@@ -32,6 +36,12 @@
         background-color: transparent;
     }
 }
+.wrapper.extend-sidebar {
+    padding: 10px 25px !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 .library {
     .wrapper {
         color: var(--text-color);
@@ -45,7 +55,6 @@
 }
 @media screen and (max-width: 1200px) {
     .wrapper {
-        width: 70px;
         padding: 15px 0;
         display: flex;
         justify-content: center;

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import request from '~/utils/httpRequest';
-
 import classNames from 'classnames/bind';
+import request from '~/utils/httpRequest';
 import styles from './Hub.module.scss';
 import Loading from '../Loading';
 import Section from '~/components/Section';
@@ -35,8 +34,8 @@ function Hub() {
             setIsLoading(false);
             setData(res.data);
             setTopic(res.data.topic.slice(0, 8));
-            document.title = 'Chủ Đề Nhạc Hot';
-            console.log(data);
+            document.title = 'Chủ Đề Nhạc Hot | Tuyển tập nhạc hay chọn lọc';
+            // console.log(data);
         });
     }, []);
     if (isLoading) {

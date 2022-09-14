@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import classNames from 'classnames/bind';
 import request from '~/utils/httpRequest';
 import Loading from '../Loading';
-
-import classNames from 'classnames/bind';
 import styles from './DetailHub.module.scss';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
@@ -19,7 +18,7 @@ function DetailHub() {
         request.get(`/category/${id}`).then((res) => {
             setData(res.data);
             setIsLoading(false);
-            console.log(res.data);
+            // console.log(res.data);
         });
     }, []);
 

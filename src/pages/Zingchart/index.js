@@ -1,14 +1,13 @@
-import request from '~/utils/httpRequest';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import classNames from 'classnames/bind';
-import styles from './Zingchart.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames/bind';
+import request from '~/utils/httpRequest';
+import styles from './Zingchart.module.scss';
 import ChartSongs from './ChartSongs';
 import Loading from '../Loading';
 import WeekChart from './WeekChart';
 import Button from '~/components/Buttons';
-
 import {
     setSrcAudio,
     setCurrentTime,
@@ -36,14 +35,12 @@ function Zingchart() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [result, setResult] = useState([]);
-    console.log(result);
 
     useEffect(() => {
         request.get('/chart/home').then((res) => {
             setIsLoading(false);
             setResult(res.data);
-            document.title = '#zingchart';
-            console.log(result);
+            document.title = '#zingchart | Xem bài hát, album, MV đang hot hiện tại';
         });
     }, []);
 

@@ -1,9 +1,9 @@
-import request from '~/utils/httpRequest';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import request from '~/utils/httpRequest';
 import SongItem from '~/components/SongItem';
 import Loading from '~/pages/Loading';
-import { useDispatch, useSelector } from 'react-redux';
 import {
     setSrcAudio,
     setCurrentTime,

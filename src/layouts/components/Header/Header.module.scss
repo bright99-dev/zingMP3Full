@@ -8,19 +8,21 @@
     .left {
         display: flex;
         align-items: center;
-        flex-shrink: 0;
         .icon {
-            width: 15%;
             display: flex;
             .icon-row {
                 background-color: transparent;
             }
         }
         .search-fields {
-            flex: 1;
-            max-width: 540px;
-            min-width: 540px;
+            width: 100%;
         }
+    }
+    .icon-bar {
+        display: none;
+        font-size: 30px;
+        color: var(--text);
+        background-color: transparent;
     }
     .right {
         height: 100%;
@@ -38,17 +40,20 @@
         }
     }
 }
-@media screen and (max-width: 1000px) {
-    .search-fields {
-        min-width: 400px !important;
-        max-width: 400px !important;
+@media screen and (max-width: 876px) {
+    .icon-row,
+    .upload {
+        display: none;
     }
 }
-@media screen and (max-width: 876px) {
+@media screen and (max-width: 576px) {
     .wrapper {
-        padding: 0 2%;
-        .icon-row,
-        .upload {
+        grid-template-columns: 1fr;
+        .icon-bar {
+            display: flex !important;
+            margin-right: 20px;
+        }
+        .right {
             display: none;
         }
     }

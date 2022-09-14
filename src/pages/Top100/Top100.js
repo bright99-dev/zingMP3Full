@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import request from '~/utils/httpRequest';
-
 import classNames from 'classnames/bind';
+import request from '~/utils/httpRequest';
 import styles from './Top100.module.scss';
 import Loading from '../Loading';
 import Section from '~/components/Section';
@@ -13,7 +12,7 @@ function Top100() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         request.get('/top100').then((res) => {
-            console.log(res);
+            // console.log(res);
             setIsLoading(false);
             setData(res.data);
             document.title = 'Top 100-Tuyển tập nhạc hay chọn lọc';

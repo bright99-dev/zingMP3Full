@@ -6,8 +6,10 @@
     .info {
         display: grid;
         background-color: #36264e;
-        padding: 100px 4% 30px;
         grid-template-columns: 2fr 1fr;
+        padding: var(--offset-padding-page);
+        padding-top: 100px;
+        padding-bottom: 30px;
         .bio {
             overflow: hidden;
             color: #fff;
@@ -93,9 +95,6 @@
         .avatar {
             display: none;
         }
-    }
-    .songs-top {
-        padding: 0 2% !important;
     }
     .songs-section {
         width: 100% !important;

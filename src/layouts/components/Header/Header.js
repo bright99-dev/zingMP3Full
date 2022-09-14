@@ -1,13 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
+import { useDispatch } from 'react-redux';
 import Search from '../Search';
-import { faArrowLeftLong, faArrowRightLong, faGear, faShirt, faUpload } from '@fortawesome/free-solid-svg-icons';
+import {
+    faArrowLeftLong,
+    faArrowRightLong,
+    faBars,
+    faGear,
+    faShirt,
+    faUpload,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from './Header.module.scss';
 import { faVuejs } from '@fortawesome/free-brands-svg-icons';
 import Button from '~/components/Buttons';
+import { setIsExtendSidebar } from '~/redux/features/audioSlice';
+
 const cx = classNames.bind(styles);
 
 function Header() {
+    const dispatch = useDispatch();
+    const handleOpenSidebar = () => {
+        dispatch(setIsExtendSidebar(true));
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('left')}>
@@ -17,6 +31,9 @@ function Header() {
                     </Button>
                     <Button circlem="true" className={cx('icon-row')}>
                         <FontAwesomeIcon icon={faArrowRightLong} />
+                    </Button>
+                    <Button circlem="true" className={cx('icon-bar')} onClick={handleOpenSidebar}>
+                        <FontAwesomeIcon icon={faBars} />
                     </Button>
                 </div>
                 <div className={cx('search-fields')}>
