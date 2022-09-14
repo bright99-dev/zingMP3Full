@@ -50,7 +50,7 @@
         .desc {
             text-align: center;
             .title {
-                font-size: 20px;
+                font-size: var(--fz20);
                 color: #fff;
                 width: 100%;
                 max-width: 300px;
@@ -93,7 +93,7 @@
         height: calc(100vh - var(--height-logo) - var(--height-player));
         overflow-y: scroll;
         .sort-description {
-            font-size: 14px;
+            font-size: var(--fz14);
             color: #fff;
             margin: 20px;
             span {

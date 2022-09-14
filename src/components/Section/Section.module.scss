@@ -6,12 +6,12 @@
         display: flex;
         justify-content: space-between;
         h3 {
-            font-size: 20px;
+            font-size: var(--fz20);
             color: #fff;
             margin-bottom: 15px;
         }
         .btn-all {
-            font-size: 12px;
+            font-size: var(--fz12);
             color: var(--text);
             text-transform: uppercase;
         }

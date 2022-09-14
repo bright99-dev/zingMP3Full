@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import { useDispatch } from 'react-redux';
+import Tippy from '@tippyjs/react';
 import Search from '../Search';
 import {
     faArrowLeftLong,
@@ -41,18 +42,26 @@ function Header() {
                 </div>
             </div>
             <div className={cx('right')}>
-                <Button circlem="true" className={cx('icon')}>
-                    <FontAwesomeIcon icon={faShirt} />
-                </Button>
-                <Button circlem="true" className={cx('icon')}>
-                    <FontAwesomeIcon icon={faVuejs} />
-                </Button>
-                <Button circlem="true" className={cx('icon', 'upload')}>
-                    <FontAwesomeIcon icon={faUpload} />
-                </Button>
-                <Button circlem="true" className={cx('icon')}>
-                    <FontAwesomeIcon icon={faGear} />
-                </Button>
+                <Tippy content="Chủ đề" placement="bottom">
+                    <span className={cx('icon')}>
+                        <FontAwesomeIcon icon={faShirt} />
+                    </span>
+                </Tippy>
+                <Tippy content="Nâng cấp VIP">
+                    <span className={cx('icon')}>
+                        <FontAwesomeIcon icon={faVuejs} />
+                    </span>
+                </Tippy>
+                <Tippy content="Tải lên">
+                    <span className={cx('icon', 'upload')}>
+                        <FontAwesomeIcon icon={faUpload} />
+                    </span>
+                </Tippy>
+                <Tippy content="Cài đặt">
+                    <span circlem="true" className={cx('icon')}>
+                        <FontAwesomeIcon icon={faGear} />
+                    </span>
+                </Tippy>
                 <Button circlem="true" className={cx('icon', 'img')}>
                     <img
                         src="https://s120-ava-talk-zmp3.zmdcdn.me/c/f/5/9/36/120/d7e2c9af9754c1305c6163278f0824c8.jpg"

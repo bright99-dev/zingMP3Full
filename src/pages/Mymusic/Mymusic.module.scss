@@ -7,7 +7,7 @@
         align-items: center;
         color: #fff;
         h2 {
-            font-size: 40px;
+            font-size: var(--fz40);
             margin-right: 10px;
         }
         .play-btn {
@@ -25,12 +25,12 @@
             display: flex;
             align-items: center;
             h3 {
-                font-size: 20px;
+                font-size: var(--fz20);
                 color: #fff;
                 margin-right: 10px;
             }
             .btn-plus {
-                font-size: 14px;
+                font-size: var(--fz14);
                 height: 25px;
                 width: 25px;
                 cursor: pointer;
@@ -42,7 +42,7 @@
             align-items: center;
             cursor: pointer;
             h4 {
-                font-size: 12px;
+                font-size: var(--fz12);
                 margin-right: 10px;
                 font-weight: 500;
             }

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPauseCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';

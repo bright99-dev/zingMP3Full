@@ -57,7 +57,7 @@ function Sidebar() {
                 <div className={cx('box-update')}>
                     <div className={cx('title')}>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>
                     <div className={cx('btn-update')}>
-                        <a href="google.com">NÂNG CẤP VIP</a>
+                        <a href="">NÂNG CẤP VIP</a>
                     </div>
                 </div>
                 <div className={cx('library')}>

@@ -15,7 +15,7 @@
             }
         }
         .search-fields {
-            width: 100%;
+            width: var(--width-search-fields);
         }
     }
     .icon-bar {
@@ -31,6 +31,16 @@
         justify-content: flex-end;
         .icon {
             margin-left: 10px;
+            width: 40px;
+            color: #fff;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2f2739;
+            cursor: pointer;
+            background-color: hsla(0, 0%, 100%, 0.05);
         }
         img {
             height: 40px;
@@ -43,7 +53,7 @@
 @media screen and (max-width: 876px) {
     .icon-row,
     .upload {
-        display: none;
+        display: none !important;
     }
 }
 @media screen and (max-width: 576px) {
