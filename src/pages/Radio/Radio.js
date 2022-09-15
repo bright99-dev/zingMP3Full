@@ -5,7 +5,7 @@ import styles from './Radio.module.scss';
 const cx = classNames.bind(styles);
 
 function Radio() {
-    <div>page</div>;
+    <div>pagvdfde</div>;
 }
 
 export default Radio;
