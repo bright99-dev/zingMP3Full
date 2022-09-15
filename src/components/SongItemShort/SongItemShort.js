@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faArrowRightArrowLeft, faPause } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faArrowRightArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './SongItemShort.module.scss';
 import images from '~/assets';

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Item.module.scss';
-import Button from '../Buttons';
 import Buttons from '../Buttons';
 
 const cx = classNames.bind(styles);

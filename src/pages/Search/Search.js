@@ -15,8 +15,6 @@ import {
     setIsDisabled,
 } from '~/redux/features/audioSlice';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import request from '~/utils/httpRequest';
@@ -24,8 +22,6 @@ import SongItem from '~/components/SongItem';
 import SongItemShort from '~/components/SongItemShort';
 import Item from '~/components/Item';
 import Loading from '../Loading';
-import { Link } from 'react-router-dom';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
