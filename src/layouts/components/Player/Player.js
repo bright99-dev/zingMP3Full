@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import styles from './Player.module.scss';
 import Button from '../../../components/Buttons';
 import request from '~/utils/httpRequest';
-// import ReactHlsPlayer from 'react-hls-player';
+import ReactHlsPlayer from 'react-hls-player';
 
 import { faWindows } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -234,17 +234,17 @@ function Player() {
         }
     };
 
-    // useEffect(() => {
-    //     if (srcAudio !== '') {
-    //         isPlay ? audioRef.current.play() : audioRef.current.pause();
-    //     }
-    // }, [srcAudio, isPlay]);
+    useEffect(() => {
+        if (srcAudio !== '') {
+            isPlay ? audioRef.current.play() : audioRef.current.pause();
+        }
+    }, [srcAudio, isPlay]);
 
-    // useEffect(() => {
-    //     if (srcRadio !== '') {
-    //         isRadioPlay ? radioRef.current.play() : radioRef.current.pause();
-    //     }
-    // }, [srcRadio, isRadioPlay]);
+    useEffect(() => {
+        if (srcRadio !== '') {
+            isRadioPlay ? radioRef.current.play() : radioRef.current.pause();
+        }
+    }, [srcRadio, isRadioPlay]);
 
     useEffect(() => {
         if (currentSongId !== null && currentSongId !== '') {
@@ -367,7 +367,7 @@ function Player() {
                 }}
                 onEnded={handleOnEnd}
             />
-            {/* <ReactHlsPlayer hidden src={srcRadio} autoPlay={isRadioPlay} playerRef={radioRef} volume={volume} /> */}
+            <ReactHlsPlayer hidden src={srcRadio} autoPlay={isRadioPlay} playerRef={radioRef} volume={volume} />
         </div>
     );
 }
