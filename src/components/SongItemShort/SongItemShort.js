@@ -32,9 +32,7 @@ function SongItemShort({ data, index, type, className, onClick }) {
                 <img src={data.thumbnail} alt={data.alias} />
 
                 {songId === data.encodeId && isPlay ? (
-                    <div onClick={() => dispatch(setIsPlay(false))} className={cx('song-play')}>
-                        <FontAwesomeIcon icon={faPause} />
-                    </div>
+                    <div onClick={() => dispatch(setIsPlay(false))} className={cx('song-play', 'gift')}></div>
                 ) : (
                     ''
                 )}
