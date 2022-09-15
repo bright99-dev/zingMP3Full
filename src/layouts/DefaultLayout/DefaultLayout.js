@@ -6,7 +6,6 @@ import styles from './DefaultLayout.module.scss';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setIsExtendSidebar } from '~/redux/features/audioSlice';
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
