@@ -1,10 +1,8 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 import classNames from 'classnames/bind';
 import styles from './Carousel.module.scss';
-
 import CarouselItem from './CarouselItem';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';

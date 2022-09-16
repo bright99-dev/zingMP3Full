@@ -108,7 +108,7 @@ function Decover() {
     } else {
         return (
             <div className={cx('wrapper')}>
-                <Carousel data={result[0]} />
+                {/* <Carousel data={result[0]} /> */}
 
                 <div className={cx('new-release')}>
                     <h3>{result[3].title}</h3>
