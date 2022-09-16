@@ -25,6 +25,7 @@
                     transform: scale(1.1);
                 }
                 &.img-playing {
+                    border-radius: 50%;
                     animation: rotating 10s linear infinite;
                 }
             }
@@ -148,5 +149,10 @@
 @media screen and (max-width: 768px) {
     .wrapper {
         grid-template-columns: 1fr !important;
+    }
+}
+@media screen and (max-width: 576px) {
+    .content {
+        height: auto !important;
     }
 }

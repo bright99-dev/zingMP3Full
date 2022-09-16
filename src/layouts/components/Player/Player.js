@@ -234,17 +234,17 @@ function Player() {
         }
     };
 
-    // useEffect(() => {
-    //     if (srcAudio !== '') {
-    //         isPlay ? audioRef.current.play() : audioRef.current.pause();
-    //     }
-    // }, [srcAudio, isPlay]);
+    useEffect(() => {
+        if (srcAudio !== '') {
+            isPlay ? audioRef.current.play() : audioRef.current.pause();
+        }
+    }, [srcAudio, isPlay]);
 
-    // useEffect(() => {
-    //     if (srcRadio !== '') {
-    //         isRadioPlay ? radioRef.current.play() : radioRef.current.pause();
-    //     }
-    // }, [srcRadio, isRadioPlay]);
+    useEffect(() => {
+        if (srcRadio !== '') {
+            isRadioPlay ? radioRef.current.play() : radioRef.current.pause();
+        }
+    }, [srcRadio, isRadioPlay]);
 
     useEffect(() => {
         if (currentSongId !== null && currentSongId !== '') {

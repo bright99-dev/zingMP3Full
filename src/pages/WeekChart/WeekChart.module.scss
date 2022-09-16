@@ -73,7 +73,7 @@
         }
     }
     .content {
-        height: calc(100vh - 200px - var(--height-logo) - var(--height--player));
+        height: calc(100vh - 200px - var(--height-logo) - var(--height-player));
         overflow-y: scroll;
         padding-bottom: 40px;
         position: relative;

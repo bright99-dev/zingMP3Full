@@ -129,6 +129,12 @@
 }
 @media screen and (max-width: 576px) {
     .wrapper {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 4fr 6fr !important;
+        .info {
+            .img {
+                max-width: 32px;
+                max-height: 32px;
+            }
+        }
     }
 }
