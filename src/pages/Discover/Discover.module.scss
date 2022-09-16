@@ -1,4 +1,5 @@
 .wrapper {
+    width: 100%;
     margin-top: calc(var(--offset-top) + 30px);
     .new-release {
         padding: var(--offset-padding-page);
@@ -20,6 +21,7 @@
             }
         }
         .grid {
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             overflow: hidden;
