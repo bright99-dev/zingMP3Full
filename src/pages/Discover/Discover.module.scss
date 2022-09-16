@@ -22,7 +22,7 @@
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            column-gap: 25px;
+            overflow: hidden;
         }
     }
 }
@@ -35,6 +35,5 @@
 @media screen and (max-width: 576px) {
     .grid {
         grid-template-columns: 1fr !important;
-        column-gap: 0 !important;
     }
 }
