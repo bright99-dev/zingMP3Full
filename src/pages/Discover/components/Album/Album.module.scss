@@ -3,6 +3,7 @@
     padding: 10px 15px;
     border-radius: 8px;
     width: 100%;
+    max-width: 100vw;
     overflow: hidden;
     white-space: nowrap;
     overflow: hidden;
@@ -41,8 +42,9 @@
         .title {
             font-size: 14px;
             color: #fff;
-            text-overflow: ellipsis;
+            white-space: nowrap;
             overflow: hidden;
+            text-overflow: ellipsis;
         }
         .name,
         .date {
