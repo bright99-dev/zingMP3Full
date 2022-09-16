@@ -44,7 +44,7 @@
         height: calc(
             100vh -
                 (
-                    var(--height-logo) + (var(--height-item-sidebar) * 5) + var(--height-line-divider-sidebar) +
+                    var(--height-logo) + (var(--height-item-sidebar) * 3) + var(--height-line-divider-sidebar) +
                         var(--height-option-sidebar) + var(--height-player)
                 )
         );
@@ -156,7 +156,7 @@
         height: calc(
             100vh -
                 (
-                    var(--height-logo) + (var(--height-item-sidebar-extend) * 5) +
+                    var(--height-logo) + (var(--height-item-sidebar-extend) * 3) +
                         var(--height-line-divider-sidebar-extend) + var(--height-option-sidebar) + var(--height-player)
                 )
         );

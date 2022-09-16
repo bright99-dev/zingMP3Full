@@ -19,7 +19,7 @@ function DefaultLayout({ children }) {
             setSticky(false);
         }
     };
-    const handleHiddenOverlay = () => {
+    const handleScaleSidebar = () => {
         dispatch(setIsExtendSidebar(false));
     };
     return (
@@ -32,7 +32,7 @@ function DefaultLayout({ children }) {
                     <div className={cx('header', sticky && 'sticky')}>
                         <Header />
                     </div>
-                    <div className={cx('page')} onScroll={handleScroll} onClick={handleHiddenOverlay}>
+                    <div className={cx('page')} onScroll={handleScroll} onClick={handleScaleSidebar}>
                         {children}
                     </div>
                 </div>

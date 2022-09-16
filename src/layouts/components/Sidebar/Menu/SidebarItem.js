@@ -6,7 +6,7 @@ import styles from './SidebarItem.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsExtendSidebar } from '~/redux/features/audioSlice';
 const cx = classNames.bind(styles);
-function SidebarItems({ title, to, icon, play, notactive }) {
+function SidebarItems({ title, to, icon, play, notactive, liveicon }) {
     const dispatch = useDispatch();
     const isExtendSidebar = useSelector((state) => state.audio.isExtendSidebar);
     const handleScaleSidebar = () => {
@@ -20,9 +20,17 @@ function SidebarItems({ title, to, icon, play, notactive }) {
             to={to}
             icon={icon}
             onClick={handleScaleSidebar}
+            img={liveicon}
         >
             <span className={cx('icon')}>{icon}</span>
             <span className={cx('title', isExtendSidebar && 'show')}>{title}</span>
+            {liveicon && (
+                <img
+                    src="https://zjs.zmdcdn.me/zmp3-desktop/dev/147506/static/media/live-tag.e25dd240.svg"
+                    alt=""
+                    className={cx('liveicon')}
+                />
+            )}
             {play && (
                 <span className={cx('icon-play')}>
                     <FontAwesomeIcon icon={faCirclePlay} />

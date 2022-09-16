@@ -15,6 +15,9 @@
             justify-content: flex-start !important;
         }
     }
+    .liveicon {
+        margin-left: 10px;
+    }
     .icon-play {
         float: right;
         font-size: 20px;
@@ -63,7 +66,8 @@
         align-items: center;
         border: none;
         .title,
-        .icon-play {
+        .icon-play,
+        .liveicon {
             display: none;
         }
         &.active {

@@ -1,8 +1,6 @@
-import Mymusic from '~/pages/Mymusic';
 import Discover from '~/pages/Discover';
 import Zingchart from '~/pages/Zingchart';
 import Radio from '~/pages/Radio';
-import Following from '~/pages/Following';
 import NewMusic from '~/pages/NewMusic';
 import Hub from '~/pages/Hub';
 import Top100 from '~/pages/Top100';
@@ -17,10 +15,6 @@ import Search from '~/pages/Search';
 // Public routes
 const publicRoutes = [
     {
-        path: '/mymusic',
-        component: Mymusic,
-    },
-    {
         path: '/',
         component: Discover,
     },
@@ -31,10 +25,6 @@ const publicRoutes = [
     {
         path: '/radio',
         component: Radio,
-    },
-    {
-        path: '/following',
-        component: Following,
     },
     {
         path: '/newmusic',
@@ -55,34 +45,6 @@ const publicRoutes = [
     {
         path: '/top100',
         component: Top100,
-    },
-    {
-        path: '/mymusic/song/favorite',
-        component: Mymusic,
-    },
-    {
-        path: '/mymusic/library/playlist',
-        component: Mymusic,
-    },
-    {
-        path: '/mymusic/album',
-        component: Mymusic,
-    },
-    {
-        path: '/mymusic/song/upload',
-        component: Mymusic,
-    },
-    {
-        path: '/mymusic/history',
-        component: Mymusic,
-    },
-    {
-        path: '/mymusic/podcast',
-        component: Mymusic,
-    },
-    {
-        path: '/mymusic/mv',
-        component: Mymusic,
     },
     //
     {
