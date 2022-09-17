@@ -1,15 +1,17 @@
 import Header from '~/layouts/components/Header';
 import Sidebar from '~/layouts/components/Sidebar';
+import RightSidebar from '../components/RightSidebar';
 import Player from '~/layouts/components/Player';
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setIsExtendSidebar } from '~/redux/features/audioSlice';
 
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
+    const isOpenSidebarRight = useSelector((state) => state.audio.isOpenSidebarRight);
     const [sticky, setSticky] = useState(false);
     const dispatch = useDispatch();
     const handleScroll = (e) => {
@@ -35,6 +37,9 @@ function DefaultLayout({ children }) {
                     <div className={cx('page')} onScroll={handleScroll} onClick={handleScaleSidebar}>
                         {children}
                     </div>
+                </div>
+                <div className={cx('right-sidebar', isOpenSidebarRight && 'active')}>
+                    <RightSidebar />
                 </div>
             </div>
             <div className={cx('player')}>

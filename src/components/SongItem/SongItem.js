@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGripLines, faMusic, faPlay, faArrowRightArrowLeft } from '@fortawesome/free-solid-svg-icons';
-
 import classNames from 'classnames/bind';
 import styles from './SongItem.module.scss';
 import images from '~/assets';
-
-import { useDispatch, useSelector } from 'react-redux';
 import { setIsPlay } from '~/redux/features/audioSlice';
 
 const cx = classNames.bind(styles);

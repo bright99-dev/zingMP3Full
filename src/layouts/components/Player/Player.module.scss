@@ -11,7 +11,7 @@
     background-color: #120c1c;
     border-top: 1px solid var(--bg-hover-color);
     overflow: hidden;
-    padding: var(--offset-padding-page);
+    padding: 0 2%;
     .info {
         display: flex;
         align-items: center;
@@ -106,6 +106,7 @@
         .list-song {
             height: 30px;
             width: 30px;
+            color: #fff;
             background-color: var(--bg-hover-color);
             border-radius: 5px;
             display: flex;
@@ -113,11 +114,27 @@
             justify-content: center;
             margin-left: 15px;
             cursor: pointer;
+            &.active {
+                background-color: #b066db;
+            }
         }
     }
 }
 .active {
     color: #b066db;
+}
+@media screen and (min-width: 1600px) {
+    .list-song {
+        display: none !important;
+    }
+    .volume {
+        border: none !important;
+    }
+}
+@media screen and (max-width: 1599px) {
+    .list-song {
+        display: flex;
+    }
 }
 @media screen and (max-width: 876px) {
     .option {

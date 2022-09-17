@@ -6,6 +6,7 @@ import styles from './Player.module.scss';
 import Button from '../../../components/Buttons';
 import request from '~/utils/httpRequest';
 import ReactHlsPlayer from 'react-hls-player';
+import Tippy from '@tippyjs/react';
 
 import { faWindows } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -33,6 +34,7 @@ import {
     setIsRadioPlay,
     setCurrnetIndexSong,
     setCurrentIndexSongRandom,
+    setIsOpenSidebarRight,
 } from '~/redux/features/audioSlice';
 
 const cx = classNames.bind(styles);
@@ -48,6 +50,7 @@ function Player() {
     const songInfo = useSelector((state) => state.audio.infoSongPlayer);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const isDisabled = useSelector((state) => state.audio.isDisabled);
+    const isOpenSidebarRight = useSelector((state) => state.audio.isOpenSidebarRight);
     const isLoop = useSelector((state) => state.audio.isLoop);
     const isRandom = useSelector((state) => state.audio.isRandom);
     const playlistSong = [...useSelector((state) => state.audio.playlistSong)];
@@ -86,6 +89,9 @@ function Player() {
                 }
             }
         }
+    };
+    const handleOpenRightSidebar = () => {
+        dispatch(setIsOpenSidebarRight(!isOpenSidebarRight));
     };
 
     const handleOnEnd = () => {
@@ -349,11 +355,11 @@ function Player() {
                         value={volume}
                     />
                 </div>
-                <Button className={cx('list-song')}>
-                    <span onClick={() => setIsFull(!isFull)}>
+                <Tippy content="Danh sách phát">
+                    <span className={cx('list-song', isOpenSidebarRight && 'active')} onClick={handleOpenRightSidebar}>
                         <FontAwesomeIcon icon={faListOl} />
                     </span>
-                </Button>
+                </Tippy>
             </div>
             <audio
                 loop={isLoop}

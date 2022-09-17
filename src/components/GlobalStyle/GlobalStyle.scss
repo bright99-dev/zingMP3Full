@@ -38,6 +38,7 @@
     --height-logo: 70px;
     --width-sidebar: 240px;
     --width-sidebar-extend: 240px;
+    --width-right-sidebar: 314px;
     --height-item-sidebar: 37px;
     --height-item-sidebar-extend: 41px;
     --height-option-sidebar: 54px;
@@ -99,4 +100,8 @@ button {
     background-color: transparent;
     border: transparent;
     outline: none;
+}
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
