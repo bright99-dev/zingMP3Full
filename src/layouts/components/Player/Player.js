@@ -266,7 +266,6 @@ function Player() {
         }
     }, [currentSongId, dispatch]);
 
-    console.log(songInfo);
     // to={songInfo.album.link} state={{ id: songInfo.album.encodeId }}
     return (
         <div className={cx('wrapper')} onClick={handleReDirect}>
