@@ -258,11 +258,9 @@ function DetailPlaylist() {
                 </div>
                 <div className={cx('content')}>
                     <div className={cx('sort-description')}>
-                        <p>
-                            <span>Lời tựa:</span> {data.sortDescription}
-                        </p>
+                        {data.sortDescription && <span>Lời tựa:</span>} {data.sortDescription}
                     </div>
-
+                    <SongItem />
                     {data.song.items.map((item) => (
                         <SongItem
                             noticon

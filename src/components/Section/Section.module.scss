@@ -10,15 +10,23 @@
             color: #fff;
             margin-bottom: 15px;
         }
-        .btn-all {
-            font-size: var(--fz12);
-            color: var(--text);
-            text-transform: uppercase;
-        }
-        .icon {
-            color: var(--text);
-            text-transform: uppercase;
-            margin: 0 20px 0 5px;
+        .category-link {
+            .btn-all {
+                font-size: var(--fz12);
+                color: var(--text);
+                text-transform: uppercase;
+            }
+            .icon {
+                color: var(--text);
+                text-transform: uppercase;
+                margin: 0 20px 0 5px;
+            }
+            &:hover {
+                .btn-all,
+                .icon {
+                    color: var(--link-text-hover);
+                }
+            }
         }
     }
     .grid {

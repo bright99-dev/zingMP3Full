@@ -27,7 +27,7 @@
     }
     .content {
         height: calc(100% - var(--height-logo));
-        overflow-y: scroll;
+        overflow-y: overlay;
         padding: 0 2%;
     }
     .content::-webkit-scrollbar {
@@ -37,7 +37,7 @@
         background: transparent;
         border-radius: 10px;
     }
-    &:hover::-webkit-scrollbar-thumb {
-        color: #ccc;
-    }
+}
+.wrapper:hover .content::-webkit-scrollbar-thumb {
+    background: #ccc;
 }

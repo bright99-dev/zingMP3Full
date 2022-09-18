@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsExtendSidebar } from '~/redux/features/audioSlice';
+import { setIsExtendSidebar, setIsOpenSidebarRight } from '~/redux/features/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -24,10 +24,13 @@ function DefaultLayout({ children }) {
     const handleScaleSidebar = () => {
         dispatch(setIsExtendSidebar(false));
     };
+    const handleHiddenRightSidebar = () => {
+        dispatch(setIsOpenSidebarRight(false));
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
-                <div className={cx('sidebar')}>
+                <div className={cx('sidebar')} onClick={handleHiddenRightSidebar}>
                     <Sidebar />
                 </div>
                 <div className={cx('content')}>

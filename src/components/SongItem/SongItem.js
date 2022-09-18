@@ -120,20 +120,20 @@ function SongItem({ serial, data, index, type, className, onClick, noticon }) {
             )}
         </div>
     ) : (
-        <div className={cx('container', type, 'no-content')}>
+        <div className={cx('wrapper', type, 'no-content')}>
             <div className={cx('content-left')}>
-                <div className={cx('left-icon')}>
+                <div className={cx('icon')}>
                     <FontAwesomeIcon icon={faArrowRightArrowLeft} />
                 </div>
                 <div className={cx('info')}>
-                    <span>NAME</span>
+                    <span className={cx('title')}>NAME</span>
                 </div>
             </div>
             <div className={cx('content-center')}>
-                <span>ALBUM</span>
+                <span className={cx('title')}>ALBUM</span>
             </div>
             <div className={cx('content-right')}>
-                <p className={cx('song-time')}>THỜI GIAN</p>
+                <p className={cx('title')}>THỜI GIAN</p>
             </div>
         </div>
     );

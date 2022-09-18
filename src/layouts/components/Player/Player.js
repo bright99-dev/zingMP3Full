@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './Player.module.scss';
@@ -7,6 +7,7 @@ import Button from '../../../components/Buttons';
 import request from '~/utils/httpRequest';
 import ReactHlsPlayer from 'react-hls-player';
 import Tippy from '@tippyjs/react';
+import { Link } from 'react-router-dom';
 
 import { faWindows } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -40,7 +41,6 @@ import {
 const cx = classNames.bind(styles);
 
 function Player() {
-    const [isFull, setIsFull] = useState(false);
     const srcAudio = useSelector((state) => state.audio.srcAudio);
 
     const dispatch = useDispatch();
@@ -239,6 +239,7 @@ function Player() {
             radioRef.current.volume = 0;
         }
     };
+    const handleReDirect = () => {};
 
     useEffect(() => {
         if (srcAudio !== '') {
@@ -264,14 +265,30 @@ function Player() {
             });
         }
     }, [currentSongId, dispatch]);
+
+    console.log(songInfo);
+    // to={songInfo.album.link} state={{ id: songInfo.album.encodeId }}
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper')} onClick={handleReDirect}>
             <div className={cx('info')}>
                 <img className={cx('img')} src={songInfo.thumbnail} alt={songInfo.alias} />
                 <div className={cx('content')}>
                     <h3 className={cx('song-name')}>{songInfo.title || 'Tên bài hát'}</h3>
                     <p className={cx('artists')}>
-                        {songInfo.artistsNames || songInfo.activeUsers + ' người đang nghe'}
+                        {songInfo.artists
+                            ? songInfo.artists.map((artist, index) => (
+                                  <span key={artist.id}>
+                                      <Link
+                                          to={artist.link}
+                                          className={cx('singers')}
+                                          state={{ artistName: artist.alias }}
+                                      >
+                                          {artist.name}
+                                      </Link>
+                                      {index + 1 === songInfo.artists.length ? '' : ', '}
+                                  </span>
+                              ))
+                            : songInfo.activeUsers + ' người đang nghe'}
                     </p>
                 </div>
             </div>

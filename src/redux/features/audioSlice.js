@@ -10,8 +10,8 @@ const initialState = {
     isDisabled: JSON.parse(localStorage.getItem('disabled')) || false,
     songId: localStorage.getItem('songId') || '',
     playlistId: localStorage.getItem('playlistId') || '',
-    currentIndexSong: 0,
-    currentIndexSongRandom: 0,
+    currentIndexSong: localStorage.getItem('currentIndexSong') || 0,
+    currentIndexSongRandom: localStorage.getItem('currentIndexSongRandom') || 0,
     infoSongPlayer: JSON.parse(localStorage.getItem('songInfo')) || {
         thumbnail: mobilelogo,
         thumbnailM: mobilelogo,
@@ -102,9 +102,11 @@ const audioSlice = createSlice({
         },
         setCurrnetIndexSong: (state, action) => {
             state.currentIndexSong = action.payload;
+            localStorage.setItem('currentIndexSong', JSON.stringify(action.payload));
         },
         setCurrentIndexSongRandom: (state, action) => {
             state.currentIndexSongRandom = action.payload;
+            localStorage.setItem('currentIndexSongRandom', JSON.stringify(action.payload));
         },
         setOpenLyric: (state, action) => {
             state.isLyric = action.payload;
