@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import mobilelogo from '~/assets/img/mobilelogo.png';
-
 const initialState = {
     isPlay: false,
     isRadioPlay: false,

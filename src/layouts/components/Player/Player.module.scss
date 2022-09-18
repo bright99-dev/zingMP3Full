@@ -43,6 +43,8 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
+                color: var(--text);
+                font-size: 12px;
             }
             .singers {
                 font-size: 12px;

@@ -265,8 +265,6 @@ function Player() {
             });
         }
     }, [currentSongId, dispatch]);
-
-    // to={songInfo.album.link} state={{ id: songInfo.album.encodeId }}
     return (
         <div className={cx('wrapper')} onClick={handleReDirect}>
             <div className={cx('info')}>
@@ -287,7 +285,7 @@ function Player() {
                                       {index + 1 === songInfo.artists.length ? '' : ', '}
                                   </span>
                               ))
-                            : songInfo.activeUsers + ' người đang nghe'}
+                            : songInfo.activeUsers + ' người đang nghe' || 'artistName'}
                     </p>
                 </div>
             </div>
@@ -303,10 +301,14 @@ function Player() {
                     <Button circles="true" onClick={handlePrevSong} className={cx(isDisabled && 'disabled')}>
                         <FontAwesomeIcon icon={faBackwardStep} />
                     </Button>
-                    <Button circlem="true" className={cx('play')} onClick={handlePlaySong}>
+                    <Button circlem="true" className={cx('play')} onClick={songInfo && handlePlaySong}>
                         {isPlay || isRadioPlay ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
                     </Button>
-                    <Button circles="true" className={cx(isDisabled && 'disabled')} onClick={handleNextSong}>
+                    <Button
+                        circles="true"
+                        className={cx(isDisabled && 'disabled')}
+                        onClick={(playlistSong || playlistRandom) && handleNextSong}
+                    >
                         <FontAwesomeIcon icon={faForwardStep} />
                     </Button>
                     <Button
