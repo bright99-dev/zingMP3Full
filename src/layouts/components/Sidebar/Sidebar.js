@@ -24,6 +24,8 @@ const cx = classNames.bind(styles);
 function Sidebar() {
     const dispatch = useDispatch();
     const isExtendSidebar = useSelector((state) => state.audio.isExtendSidebar);
+    const currentIndexSongRandom = useSelector((state) => state.audio.currentIndexSongRandom);
+    const srcRadio = useSelector((state) => state.audio.srcRadio);
     const currentIndexSong = useSelector((state) => state.audio.currentIndexSong);
     const handleToggleExtend = () => {
         dispatch(setIsExtendSidebar(!isExtendSidebar));
@@ -32,7 +34,13 @@ function Sidebar() {
         dispatch(setIsExtendSidebar(false));
     };
     return (
-        <div className={cx('wrapper', isExtendSidebar && 'extend-sidebar')}>
+        <div
+            className={cx(
+                'wrapper',
+                isExtendSidebar && 'extend-sidebar',
+                (currentIndexSongRandom || currentIndexSong || srcRadio) && 'fixed-height',
+            )}
+        >
             <div className={cx('sidebar-top')}>
                 <Link className={cx('logo')} to="/" onClick={handleScaleSidebar} />
                 <SidebarItem title="Khám phá" to="/" icon={<FontAwesomeIcon icon={faCompactDisc} />} />
@@ -56,11 +64,6 @@ function Sidebar() {
             <div className={cx('sidebar-bottom')}>
                 <SidebarItem title="Nhạc mới" to="/newmusic" play={true} icon={<FontAwesomeIcon icon={faMusic} />} />
                 <SidebarItem title="Thể loại" to="/hub" icon={<FontAwesomeIcon icon={faIcons} />} />
-                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
-                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
-                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
-                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
-                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
                 <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
                 <div className={cx('box-update')}>
                     <div className={cx('title')}>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>

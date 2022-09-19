@@ -12,9 +12,9 @@ const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
     const isOpenSidebarRight = useSelector((state) => state.audio.isOpenSidebarRight);
+    const currentIndexSongRandom = useSelector((state) => state.audio.currentIndexSongRandom);
     const currentIndexSong = useSelector((state) => state.audio.currentIndexSong);
     const srcRadio = useSelector((state) => state.audio.srcRadio);
-    const currentIndexSongRandom = useSelector((state) => state.audio.currentIndexSongRandom);
     const [sticky, setSticky] = useState(false);
     const dispatch = useDispatch();
     const handleScroll = (e) => {

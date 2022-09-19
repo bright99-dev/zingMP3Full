@@ -20,7 +20,6 @@ function SidebarItems({ title, to, icon, play, notactive, liveicon }) {
             to={to}
             icon={icon}
             onClick={handleScaleSidebar}
-            img={liveicon}
         >
             <span className={cx('icon')}>{icon}</span>
             <span className={cx('title', isExtendSidebar && 'show')}>{title}</span>
