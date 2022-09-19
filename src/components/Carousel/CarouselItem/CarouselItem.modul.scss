@@ -9,3 +9,8 @@
         object-fit: cover;
     }
 }
+@media screen and (max-width: 576px) {
+    .wrapper {
+        max-height: 250px;
+    }
+}

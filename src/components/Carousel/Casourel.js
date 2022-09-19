@@ -44,7 +44,7 @@ function Carousel({ data }) {
                 },
             },
             {
-                breakpoint: 740,
+                breakpoint: 576,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
