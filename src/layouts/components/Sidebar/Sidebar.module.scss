@@ -1,8 +1,11 @@
 .wrapper {
     width: var(--width-sidebar);
-    height: 100vh;
+    height: 100%;
     background-color: #2a213a;
     transition: all 0.3s;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
     .sidebar-top,
     .sidebar-bottom,
     .library {
@@ -40,14 +43,7 @@
         border-radius: 10px;
     }
     .sidebar-bottom {
-        width: 100%;
-        height: calc(
-            100vh -
-                (
-                    var(--height-logo) + (var(--height-item-sidebar) * 3) + var(--height-line-divider-sidebar) +
-                        var(--height-option-sidebar) + var(--height-player)
-                )
-        );
+        flex: 1;
         overflow-y: overlay;
         overflow-x: hidden;
         .box-update {
@@ -111,55 +107,49 @@
             background: #999;
         }
     }
-
-    .sidebar-addList {
+    .sidebar-button {
         height: var(--height-option-sidebar);
+        flex-shrink: 0;
         border-top: 1px solid var(--bg-hover-color);
-        color: #fff;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        padding-left: 25px;
-        font-weight: 700;
-        cursor: pointer;
-        .plus {
-            font-size: 20px;
-            margin-right: 7px;
-            font-weight: 300;
+        .btn-addList {
+            height: 100%;
+            flex: 1;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding-left: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            .plus {
+                font-size: 20px;
+                margin-right: 7px;
+                font-weight: 300;
+            }
         }
-    }
-    .btn-extend {
-        height: var(--height-option-sidebar);
-        width: var(--width-sidebar);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
+        .btn-extend {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
     }
 }
 .wrapper.extend-sidebar {
     width: var(--width-sidebar-extend);
     z-index: 999;
+    height: calc(100vh - var(--height-player)) !important;
     position: fixed;
     top: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
     transition: all 0.3s;
     .logo {
         width: var(--width-sidebar-extend) !important;
         background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg') !important;
         background-size: 50% !important;
         background-position: 25% 50% !important;
-    }
-    .sidebar-bottom {
-        width: 100%;
-        height: calc(
-            100vh -
-                (
-                    var(--height-logo) + (var(--height-item-sidebar-extend) * 3) +
-                        var(--height-line-divider-sidebar-extend) + var(--height-option-sidebar) + var(--height-player)
-                )
-        );
     }
     .line {
         height: var(--height-line-divider-sidebar-extend) !important;
@@ -168,8 +158,7 @@
         }
     }
     .btn-extend {
-        width: var(--width-sidebar-extend);
-        justify-content: flex-end;
+        justify-content: flex-end !important;
         padding-right: 20px !important;
     }
 }
@@ -184,14 +173,17 @@
         }
         .box-update,
         .library-title,
-        .sidebar-addList {
+        .btn-addList {
             display: none !important;
+        }
+        .sidebar-button {
+            border: none;
         }
         .inner-line {
             width: 60%;
         }
         .btn-extend {
-            display: flex;
+            display: flex !important;
         }
     }
 }

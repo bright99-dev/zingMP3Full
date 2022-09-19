@@ -1,8 +1,5 @@
 .wrapper {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     height: var(--height-player);
     display: grid;
     grid-template-columns: 3fr 4fr 3fr;
@@ -76,11 +73,6 @@
                     border-color: currentColor;
                 }
             }
-            .disabled {
-                color: var(--bg-hover-color);
-                background-color: transparent;
-                pointer-events: none;
-            }
         }
         .range {
             margin-top: 10px;
@@ -101,6 +93,9 @@
             }
             &.d-none {
                 display: none;
+            }
+            &.hidden {
+                display: none !important;
             }
         }
     }
@@ -135,6 +130,11 @@
                 background-color: #7200a1;
             }
         }
+    }
+    .disabled {
+        color: var(--bg-hover-color);
+        background-color: transparent;
+        pointer-events: none;
     }
 }
 .active {

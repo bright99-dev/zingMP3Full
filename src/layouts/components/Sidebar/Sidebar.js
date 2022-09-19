@@ -24,6 +24,7 @@ const cx = classNames.bind(styles);
 function Sidebar() {
     const dispatch = useDispatch();
     const isExtendSidebar = useSelector((state) => state.audio.isExtendSidebar);
+    const currentIndexSong = useSelector((state) => state.audio.currentIndexSong);
     const handleToggleExtend = () => {
         dispatch(setIsExtendSidebar(!isExtendSidebar));
     };
@@ -56,6 +57,11 @@ function Sidebar() {
                 <SidebarItem title="Nhạc mới" to="/newmusic" play={true} icon={<FontAwesomeIcon icon={faMusic} />} />
                 <SidebarItem title="Thể loại" to="/hub" icon={<FontAwesomeIcon icon={faIcons} />} />
                 <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
+                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
+                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
+                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
+                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
+                <SidebarItem title="Top100" to="/top100" icon={<FontAwesomeIcon icon={faStar} />} />
                 <div className={cx('box-update')}>
                     <div className={cx('title')}>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>
                     <div className={cx('btn-update')}>
@@ -73,20 +79,22 @@ function Sidebar() {
                     </div>
                 </div>
             </div>
-            <div className={cx('sidebar-addList')}>
-                <span className={cx('plus')}>+</span>
-                <span>Taọ playlist mới</span>
-            </div>
-            <div className={cx('btn-extend')}>
-                {isExtendSidebar ? (
-                    <Button circlem={true} onClick={handleToggleExtend}>
-                        <FontAwesomeIcon icon={faChevronLeft} />
-                    </Button>
-                ) : (
-                    <Button circlem={true} onClick={handleToggleExtend}>
-                        <FontAwesomeIcon icon={faChevronRight} />
-                    </Button>
-                )}
+            <div className={cx('sidebar-button')}>
+                <div className={cx('btn-addList')}>
+                    <span className={cx('plus')}>+</span>
+                    <span>Taọ playlist mới</span>
+                </div>
+                <div className={cx('btn-extend')}>
+                    {isExtendSidebar ? (
+                        <Button circlem={true} onClick={handleToggleExtend}>
+                            <FontAwesomeIcon icon={faChevronLeft} />
+                        </Button>
+                    ) : (
+                        <Button circlem={true} onClick={handleToggleExtend}>
+                            <FontAwesomeIcon icon={faChevronRight} />
+                        </Button>
+                    )}
+                </div>
             </div>
         </div>
     );

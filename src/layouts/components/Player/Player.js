@@ -285,23 +285,21 @@ function Player() {
                                       {index + 1 === songInfo.artists.length ? '' : ', '}
                                   </span>
                               ))
-                            : songInfo.activeUsers + ' người đang nghe' || 'artistName'}
+                            : songInfo.activeUsers
+                            ? songInfo.activeUsers + ' người đang nghe'
+                            : 'artistName'}
                     </p>
                 </div>
             </div>
             <div className={cx('control')}>
                 <div className={cx('handler')}>
-                    <Button
-                        circles="true"
-                        className={cx(isRandom && 'active', isDisabled && 'disabled')}
-                        onClick={handleRandom}
-                    >
+                    <Button circles="true" className={cx(isRandom && 'active')} onClick={handleRandom}>
                         <FontAwesomeIcon icon={faShuffle} />
                     </Button>
                     <Button circles="true" onClick={handlePrevSong} className={cx(isDisabled && 'disabled')}>
                         <FontAwesomeIcon icon={faBackwardStep} />
                     </Button>
-                    <Button circlem="true" className={cx('play')} onClick={songInfo && handlePlaySong}>
+                    <Button circlem="true" className={cx('play')} onClick={handlePlaySong}>
                         {isPlay || isRadioPlay ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
                     </Button>
                     <Button

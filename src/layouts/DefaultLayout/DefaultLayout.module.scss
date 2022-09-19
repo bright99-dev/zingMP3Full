@@ -6,11 +6,14 @@
     left: 0;
     right: 0;
     background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
     .container {
-        width: 100%;
+        flex: 1;
         height: calc(100vh - var(--height-player));
         display: flex;
         .sidebar {
+            background-color: #2a213a;
             width: var(--width-sidebar);
         }
         .content {
@@ -33,6 +36,7 @@
                 flex: 1;
                 overflow-y: overlay;
                 position: relative;
+                margin: 0;
             }
             .page::-webkit-scrollbar {
                 width: 4px;
