@@ -13,7 +13,7 @@
         height: calc(100vh - var(--height-player));
         display: flex;
         .sidebar {
-            background-color: #2a213a;
+            background-color: var(--sidebar-popup-bg);
             width: var(--width-sidebar);
         }
         .content {
@@ -23,7 +23,6 @@
             .header {
                 width: calc(100% - var(--width-sidebar));
                 height: var(--height-logo);
-                background-color: #ccc;
                 background-color: transparent;
                 position: fixed;
                 z-index: 99;
@@ -38,17 +37,12 @@
                 position: relative;
                 margin: 0;
             }
-            .page::-webkit-scrollbar {
-                width: 4px;
-                z-index: 1000;
-            }
             .page::-webkit-scrollbar-thumb {
                 background: transparent;
-                border-radius: 10px;
             }
             &:hover {
                 .page::-webkit-scrollbar-thumb {
-                    background: #ccc;
+                    background: var(--link-text);
                 }
             }
         }

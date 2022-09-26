@@ -5,7 +5,7 @@
     grid-template-columns: 3fr 4fr 3fr;
     align-items: center;
     z-index: 1000;
-    background-color: #120c1c;
+    background-color: var(--player-bg);
     border-top: 1px solid var(--bg-hover-color);
     overflow: hidden;
     padding: 0 2%;
@@ -31,7 +31,7 @@
             text-overflow: ellipsis;
             overflow: hidden;
             .song-name {
-                font-size: 14px;
+                font-size: 1.4rem;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
@@ -40,15 +40,15 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                color: var(--text);
-                font-size: 12px;
+                color: var(--link-text);
+                font-size: 1.2rem;
             }
             .singers {
-                font-size: 12px;
-                color: var(--text);
+                font-size: 1.2rem;
+                color: var(--link-text);
                 &:hover {
                     text-decoration: underline;
-                    color: #b066db;
+                    color: var(--link-text-hover);
                 }
             }
         }
@@ -62,14 +62,13 @@
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            color: #fff;
             width: 100%;
             flex-shrink: 0;
             .play {
                 background-color: transparent;
-                border: 1px solid #fff;
+                border: 1px solid var(--white);
                 &:hover {
-                    color: #b066db;
+                    color: var(--link-text-hover);
                     border-color: currentColor;
                 }
             }
@@ -88,8 +87,8 @@
                 }
             }
             .time {
-                font-size: 12px;
-                color: var(--text);
+                font-size: 1.2rem;
+                color: var(--link-text);
             }
             &.d-none {
                 display: none;
@@ -118,7 +117,6 @@
         .list-song {
             height: 30px;
             width: 30px;
-            color: #fff;
             background-color: var(--bg-hover-color);
             border-radius: 5px;
             display: flex;
@@ -126,8 +124,9 @@
             justify-content: center;
             margin-left: 15px;
             cursor: pointer;
+            color: var(--white);
             &.active {
-                background-color: #7200a1;
+                background-color: var(--purple-primary);
             }
         }
     }
@@ -138,7 +137,7 @@
     }
 }
 .active {
-    color: #b066db;
+    color: var(--link-text-hover);
 }
 @media screen and (min-width: 1600px) {
     .list-song {

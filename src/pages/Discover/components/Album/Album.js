@@ -6,7 +6,7 @@ import styles from './Album.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Album({ type, data }) {
+function Album({ data }) {
     return (
         <div key={data.encodeId} className={cx('wrapper')}>
             <Link className={cx('img-thumb')} to={data.link} state={{ id: data.encodeId }}>

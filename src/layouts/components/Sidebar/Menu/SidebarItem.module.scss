@@ -1,7 +1,7 @@
 .wrapper {
     padding: 7px 25px;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--link-text-color);
     border-left: 3px solid transparent;
     width: 100%;
     display: inline-block;
@@ -49,7 +49,7 @@
 }
 .library {
     .wrapper {
-        color: var(--text-color);
+        color: var(--link-text-color);
         &.active {
             border-left: 3px solid transparent !important;
         }

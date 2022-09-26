@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import mobilelogo from '~/assets/img/mobilelogo.png';
 const initialState = {
     isPlay: false,
@@ -99,7 +100,7 @@ const audioSlice = createSlice({
             state.playlistRandom = action.payload;
             localStorage.setItem('playlistRandom', JSON.stringify(action.payload));
         },
-        setCurrnetIndexSong: (state, action) => {
+        setCurrentIndexSong: (state, action) => {
             state.currentIndexSong = action.payload;
             localStorage.setItem('currentIndexSong', JSON.stringify(action.payload));
         },
@@ -117,6 +118,43 @@ const audioSlice = createSlice({
             state.isRandom = action.payload;
             localStorage.setItem('random', JSON.stringify(action.payload));
         },
+        // handleSong: (song, playlist, id) => {
+        //     // eslint-disable-next-line react-hooks/rules-of-hooks
+        //     const dispatch = useDispatch();
+        //     let playlistCanPlay = [];
+        //     if (song.streamingStatus === 1 && song.isWorldWide) {
+        //         dispatch(setIsRadioPlay(false));
+        //         dispatch(setPlaylistId(id));
+        //         dispatch(setCurrentTime(0));
+        //         dispatch(setSrcAudio(''));
+        //         for (var i = 0; i < playlist.length; i++) {
+        //             if (playlist[i].streamingStatus === 1 && playlist[i].isWorldWide) {
+        //                 playlistCanPlay.push(playlist[i]);
+        //             }
+        //         }
+        //         if (isRandom) {
+        //             dispatch(setPlaylistRandom(shuffle([...playlistCanPlay])));
+        //             dispatch(setSongId(song.encodeId));
+        //             dispatch(setInfoSongPlayer(song));
+        //             dispatch(setPlaylistSong(playlistCanPlay));
+        //             dispatch(setCurrentIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
+        //             // dispatch(setCurrentIndexSongRandom(-1));
+        //             dispatch(setIsPlay(true));
+        //             dispatch(setIsDisabled(false));
+        //         } else {
+        //             dispatch(setPlaylistRandom(playlistCanPlay));
+        //             // dispatch(setCurrentIndexSongRandom(-1));
+        //             dispatch(setInfoSongPlayer(song));
+        //             dispatch(setSongId(song.encodeId));
+        //             dispatch(setPlaylistSong(playlistCanPlay));
+        //             dispatch(setCurrentIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
+        //             dispatch(setIsPlay(true));
+        //             dispatch(setIsDisabled(false));
+        //         }
+        //     } else {
+        //         alert('This is vip song');
+        //     }
+        // },
     },
 });
 
@@ -135,7 +173,7 @@ export const {
     setSrcAudio,
     setAutoPlay,
     setPlaylistSong,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setOpenLyric,
     setRandom,
     setPrevSong,

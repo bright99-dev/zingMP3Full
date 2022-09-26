@@ -5,7 +5,7 @@ import request from '~/utils/httpRequest';
 import Loading from '../Loading';
 import classNames from 'classnames/bind';
 import styles from './Artist.module.scss';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 import SongItem from '~/components/SongItem';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
@@ -23,9 +23,9 @@ import {
     setSrcAudio,
     setPlaylistRandom,
     setCurrentIndexSongRandom,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -76,7 +76,7 @@ function Artist() {
                 dispatch(setSongId(song.encodeId));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setCurrentIndexSongRandom(-1));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
@@ -85,7 +85,7 @@ function Artist() {
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setSongId(song.encodeId));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             }
@@ -117,7 +117,7 @@ function Artist() {
             dispatch(setInfoSongPlayer(songsCanPlay[randomIndex]));
             dispatch(setPlaylistSong(songsCanPlay));
             dispatch(setPlaylistRandom(shuffle([...songsCanPlay])));
-            dispatch(setCurrnetIndexSong(randomIndex));
+            dispatch(setCurrentIndexSong(randomIndex));
             dispatch(setCurrentIndexSongRandom(-1));
             dispatch(setRandom(true));
             dispatch(setIsDisabled(false));
@@ -147,6 +147,7 @@ function Artist() {
                             {playlistId !== data.encodeId && (
                                 <Button
                                     roundedm
+                                    purple
                                     className={cx('play-btn')}
                                     onClick={() => {
                                         handlePlayRandom(data.sections[0].items, data.encodeId);
@@ -161,6 +162,7 @@ function Artist() {
                             {playlistId === data.encodeId && isPlay && (
                                 <Button
                                     roundedm
+                                    purple
                                     className={cx('play-btn')}
                                     onClick={() => {
                                         dispatch(setIsPlay(!isPlay));
@@ -175,6 +177,7 @@ function Artist() {
                             {playlistId === data.encodeId && !isPlay && (
                                 <Button
                                     roundedm
+                                    purple
                                     className={cx('play-btn')}
                                     onClick={() => {
                                         dispatch(setIsPlay(!isPlay));

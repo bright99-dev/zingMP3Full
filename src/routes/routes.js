@@ -4,8 +4,6 @@ import Radio from '~/pages/Radio';
 import NewMusic from '~/pages/NewMusic';
 import Hub from '~/pages/Hub';
 import Top100 from '~/pages/Top100';
-import Mv from '~/pages/Mv';
-
 import Artist from '~/pages/Artist';
 import WeekChart from '~/pages/WeekChart';
 import DetailHub from '~/pages/DetailHub';
@@ -34,10 +32,7 @@ const publicRoutes = [
         path: '/hub',
         component: Hub,
     },
-    {
-        path: '/mv',
-        component: Mv,
-    },
+
     {
         path: '/top100',
         component: Top100,

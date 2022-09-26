@@ -13,9 +13,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './Header.module.scss';
 import { faVuejs } from '@fortawesome/free-brands-svg-icons';
-import Button from '~/components/Buttons';
-import { setIsExtendSidebar } from '~/redux/features/audioSlice';
-
+import Button from '~/components/Button';
+import { setIsExtendSidebar } from '~/redux/audioSlice';
+import { setIsOpenThemModal } from '~/redux/toggleSlice';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -23,17 +23,18 @@ function Header() {
     const handleOpenSidebar = () => {
         dispatch(setIsExtendSidebar(true));
     };
+    const isOpenThemModal = (state) => state.toggle.isOpenThemModal;
     return (
         <div className={cx('wrapper')}>
             <div className={cx('left')}>
                 <div className={cx('icon')}>
-                    <Button circlem="true" className={cx('icon-row')}>
+                    <Button circlem className={cx('icon-row')}>
                         <FontAwesomeIcon icon={faArrowLeftLong} />
                     </Button>
-                    <Button circlem="true" className={cx('icon-row')}>
+                    <Button circlem className={cx('icon-row')}>
                         <FontAwesomeIcon icon={faArrowRightLong} />
                     </Button>
-                    <Button circlem="true" className={cx('icon-bar')} onClick={handleOpenSidebar}>
+                    <Button circlem className={cx('icon-bar')} onClick={handleOpenSidebar}>
                         <FontAwesomeIcon icon={faBars} />
                     </Button>
                 </div>
@@ -42,7 +43,13 @@ function Header() {
                 </div>
             </div>
             <div className={cx('right')}>
-                <Tippy content="Chủ đề" placement="bottom">
+                <Tippy
+                    content="Chủ đề"
+                    placement="bottom"
+                    onClick={() => {
+                        dispatch(setIsOpenThemModal(!isOpenThemModal));
+                    }}
+                >
                     <span className={cx('icon')}>
                         <FontAwesomeIcon icon={faShirt} />
                     </span>

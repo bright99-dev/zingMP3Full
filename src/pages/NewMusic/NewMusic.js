@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import request from '~/utils/httpRequest';
 import styles from './NewMusic.module.scss';
 import SongItem from '~/components/SongItem';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 import Loading from '../Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -18,11 +18,11 @@ import {
     setPlaylistId,
     setIsRadioPlay,
     setPlaylistRandom,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setCurrentIndexSongRandom,
     setRandom,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +62,7 @@ function NewMusic() {
                 dispatch(setSongId(song.encodeId));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setCurrentIndexSongRandom(-1));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
@@ -71,7 +71,7 @@ function NewMusic() {
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setSongId(song.encodeId));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             }
@@ -83,7 +83,6 @@ function NewMusic() {
 
     useEffect(() => {
         request.get('/chart/new-release').then((res) => {
-            // console.log(res.data);
             setData(res.data);
             setIsLoading(false);
             document.title = '#zingchart tuần, #zingchart Zing - Bài hát';
@@ -102,8 +101,8 @@ function NewMusic() {
                     <h3 className={cx('title')}>{data.title}</h3>
                     {isPlay && playlistId === data.sectionId ? (
                         <Button
-                            className={cx('play-btn')}
                             circlem
+                            purple
                             onClick={() => {
                                 dispatch(setIsPlay(false));
                             }}
@@ -115,8 +114,8 @@ function NewMusic() {
                     )}
                     {!isPlay && playlistId === data.sectionId ? (
                         <Button
-                            className={cx('play-btn')}
                             circlem
+                            purple
                             onClick={() => {
                                 dispatch(setIsPlay(true));
                             }}
@@ -128,8 +127,8 @@ function NewMusic() {
                     )}
                     {playlistId !== data.sectionId ? (
                         <Button
-                            className={cx('play-btn')}
                             circlem
+                            purple
                             onClick={() => {
                                 dispatch(setRandom(false));
                                 handlePlaySong(data.items[0], data.items, data.sectionId);

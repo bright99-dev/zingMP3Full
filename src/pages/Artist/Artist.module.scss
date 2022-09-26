@@ -5,7 +5,7 @@
     overflow-x: hidden;
     .info {
         display: grid;
-        background-color: #36264e;
+        background-color: var(--alpha-layout-bg);
         grid-template-columns: 2fr 1fr;
         padding: var(--offset-padding-page);
         padding-top: 100px;
@@ -14,21 +14,19 @@
         overflow: hidden;
         .bio {
             overflow: hidden;
-            color: #fff;
             .name {
-                font-size: var(--fz40);
+                font-size: 4rem;
                 font-weight: 700;
             }
             .desc {
-                font-size: var(--fz14);
+                font-size: 1.4rem;
                 max-width: 400px;
                 margin: 15px 0;
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
             .play-btn {
-                background-color: #7200a1;
-                border-color: transparent;
+                border-color: var(--purple-primary);
             }
             .icon {
                 margin-right: 10px;
@@ -56,8 +54,7 @@
         padding: var(--offset-padding-page);
         .title {
             width: 100%;
-            font-size: var(--fz20);
-            color: #fff;
+            font-size: 2rem;
             font-weight: 700;
         }
         .content {
@@ -71,22 +68,10 @@
                     max-height: 240px;
                 }
             }
-            .songs-section::-webkit-scrollbar {
-                width: 4px;
-            }
-            .songs-section::-webkit-scrollbar-thumb {
-                background: transparent;
-                border-radius: 10px;
-            }
             .songs-section {
                 overflow-y: scroll;
                 overflow-x: hidden;
                 height: 250px;
-            }
-            &:hover {
-                .songs-section::-webkit-scrollbar-thumb {
-                    background: #999;
-                }
             }
         }
     }

@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Item.module.scss';
-import Buttons from '../Buttons';
+import Buttons from '../Button';
 
 const cx = classNames.bind(styles);
 
-function Item({ type, data }) {
+function Item({ data }) {
     return (
         <div key={data.encodeId} className={cx('wrapper')}>
             <div className={cx('img-thumb')}>
@@ -22,7 +22,6 @@ function Item({ type, data }) {
                 <Link to={data.link} state={{ id: data.encodeId }}>
                     <h3 className={cx('name')}>{data.title}</h3>
                 </Link>
-
                 <div className={cx('singers')}>
                     {data.artists ? (
                         data.artists.map((artist, index) => (

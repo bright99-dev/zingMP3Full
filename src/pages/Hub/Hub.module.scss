@@ -14,8 +14,8 @@
         .btn-more {
             margin-left: 50%;
             transform: translateX(-50%);
-            border-color: var(--text);
-            font-size: 12px;
+            border-color: var(--link-text);
+            font-size: 1.2rem;
             &:hover {
                 background-color: transparent;
                 opacity: 0.8;

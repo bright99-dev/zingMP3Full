@@ -36,17 +36,9 @@
         margin: 20px;
         position: relative;
         .title {
-            font-size: var(--fz40);
-            color: #fff;
+            font-size: 4rem;
             margin-right: 10px;
             text-transform: capitalize;
-        }
-        .play-btn {
-            background-color: #670091;
-            cursor: pointer;
-            &:hover {
-                opacity: 0.8;
-            }
         }
     }
     .content {

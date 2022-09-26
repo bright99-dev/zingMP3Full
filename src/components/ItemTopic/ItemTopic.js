@@ -4,7 +4,7 @@ import styles from './ItemTopic.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ItemTopic({ type, data }) {
+function ItemTopic({ data }) {
     return (
         <div key={data.encodeId} className={cx('wrapper')}>
             <Link to={data.link} state={{ id: data.encodeId }}>

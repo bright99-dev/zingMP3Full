@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './ArrowRight.module.scss';
-import Button from '~/components/Buttons/Button';
+import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 

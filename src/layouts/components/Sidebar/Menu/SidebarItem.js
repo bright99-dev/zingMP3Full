@@ -4,7 +4,7 @@ import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './SidebarItem.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsExtendSidebar } from '~/redux/features/audioSlice';
+import { setIsExtendSidebar } from '~/redux/audioSlice';
 const cx = classNames.bind(styles);
 function SidebarItems({ title, to, icon, play, notactive, liveicon }) {
     const dispatch = useDispatch();

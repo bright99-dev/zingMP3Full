@@ -18,9 +18,8 @@ function DetailHub() {
         request.get(`/category/${id}`).then((res) => {
             setData(res.data);
             setIsLoading(false);
-            // console.log(res.data);
         });
-    }, []);
+    }, [id]);
 
     if (isLoading) {
         return <Loading />;

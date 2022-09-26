@@ -1,12 +1,12 @@
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './Section.module.scss';
-import { Link } from 'react-router-dom';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function Section({ title, data, btn, children, flex }) {
+function Section({ title, data, btn, children }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>

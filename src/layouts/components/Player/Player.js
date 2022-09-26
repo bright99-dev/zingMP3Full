@@ -3,12 +3,11 @@ import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './Player.module.scss';
-import Button from '../../../components/Buttons';
+import Button from '../../../components/Button';
 import request from '~/utils/httpRequest';
 import ReactHlsPlayer from 'react-hls-player';
 import Tippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';
-
 import { faWindows } from '@fortawesome/free-brands-svg-icons';
 import {
     faShuffle,
@@ -33,16 +32,15 @@ import {
     setLoop,
     setVolume,
     setIsRadioPlay,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setCurrentIndexSongRandom,
     setIsOpenSidebarRight,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
 function Player() {
     const srcAudio = useSelector((state) => state.audio.srcAudio);
-
     const dispatch = useDispatch();
     const currentSongId = useSelector((state) => state.audio.songId);
     let currentIndexSong = useSelector((state) => state.audio.currentIndexSong);
@@ -104,7 +102,7 @@ function Player() {
                     dispatch(setInfoSongPlayer(playlistRandom[0]));
                     dispatch(setSongId(playlistRandom[0].encodeId));
                     dispatch(
-                        setCurrnetIndexSong(
+                        setCurrentIndexSong(
                             playlistSong.findIndex((item) => item.encodeId === playlistRandom[0].encodeId),
                         ),
                     );
@@ -114,7 +112,7 @@ function Player() {
                     dispatch(setSongId(playlistRandom[currentIndexSongRandom].encodeId));
                     dispatch(setInfoSongPlayer(playlistRandom[currentIndexSongRandom]));
                     dispatch(
-                        setCurrnetIndexSong(
+                        setCurrentIndexSong(
                             playlistSong.findIndex(
                                 (item) => item.encodeId === playlistRandom[currentIndexSongRandom].encodeId,
                             ),
@@ -124,12 +122,12 @@ function Player() {
                 }
             } else {
                 if (currentIndexSong === playlistSong.length - 1) {
-                    dispatch(setCurrnetIndexSong(0));
+                    dispatch(setCurrentIndexSong(0));
                     dispatch(setInfoSongPlayer(playlistSong[0]));
                     dispatch(setSongId(playlistSong[0].encodeId));
                     dispatch(setIsPlay(true));
                 } else {
-                    dispatch(setCurrnetIndexSong((currentIndexSong += 1)));
+                    dispatch(setCurrentIndexSong((currentIndexSong += 1)));
                     dispatch(setInfoSongPlayer(playlistSong[currentIndexSong]));
                     dispatch(setSongId(playlistSong[currentIndexSong].encodeId));
                     dispatch(setIsPlay(true));
@@ -159,9 +157,9 @@ function Player() {
                 dispatch(setCurrentIndexSongRandom((currentIndexSongRandom += 1)));
                 dispatch(setInfoSongPlayer(playlistRandom[currentIndexSongRandom]));
                 dispatch(setSongId(playlistRandom[currentIndexSongRandom].encodeId));
-                dispatch(setCurrnetIndexSong(playlistSong.indexOf(playlistRandom[currentIndexSongRandom])));
+                dispatch(setCurrentIndexSong(playlistSong.indexOf(playlistRandom[currentIndexSongRandom])));
             } else {
-                dispatch(setCurrnetIndexSong((currentIndexSong += 1)));
+                dispatch(setCurrentIndexSong((currentIndexSong += 1)));
                 dispatch(setInfoSongPlayer(playlistSong[currentIndexSong]));
                 dispatch(setSongId(playlistSong[currentIndexSong].encodeId));
             }
@@ -169,20 +167,11 @@ function Player() {
     };
 
     const handleLoop = () => {
-        if (isLoop) {
-            dispatch(setLoop(false));
-        } else {
-            dispatch(setLoop(true));
-        }
+        dispatch(setLoop(!isLoop));
     };
 
     const handleRandom = () => {
-        if (isRandom) {
-            dispatch(setRandom(false));
-        } else {
-            dispatch(setCurrentIndexSongRandom(-1));
-            dispatch(setRandom(true));
-        }
+        dispatch(setRandom(!isRandom));
     };
 
     const handlePrevSong = () => {
@@ -199,7 +188,7 @@ function Player() {
                     dispatch(setInfoSongPlayer(playlistRandom[currentIndexSongRandom]));
                     dispatch(setSongId(playlistRandom[currentIndexSongRandom].encodeId));
                     dispatch(
-                        setCurrnetIndexSong(playlistSong.findIndex((item) => item.encodeId === songInfo.encodeId)),
+                        setCurrentIndexSong(playlistSong.findIndex((item) => item.encodeId === songInfo.encodeId)),
                     );
                     dispatch(setSrcAudio(''));
                     dispatch(setCurrentTime(0));
@@ -210,7 +199,7 @@ function Player() {
                     dispatch(() => setCurrentTime(0));
                     audioRef.current.currentTime = 0;
                 } else {
-                    dispatch(setCurrnetIndexSong((currentIndexSong -= 1)));
+                    dispatch(setCurrentIndexSong((currentIndexSong -= 1)));
                     dispatch(setInfoSongPlayer(playlistSong[currentIndexSong]));
                     dispatch(setSongId(playlistSong[currentIndexSong].encodeId));
                     dispatch(setCurrentTime(0));
@@ -239,8 +228,6 @@ function Player() {
             radioRef.current.volume = 0;
         }
     };
-    const handleReDirect = () => {};
-
     useEffect(() => {
         if (srcAudio !== '') {
             isPlay ? audioRef.current.play() : audioRef.current.pause();
@@ -266,7 +253,7 @@ function Player() {
         }
     }, [currentSongId, dispatch]);
     return (
-        <div className={cx('wrapper')} onClick={handleReDirect}>
+        <div className={cx('wrapper')}>
             <div className={cx('info')}>
                 <img className={cx('img')} src={songInfo.thumbnail} alt={songInfo.alias} />
                 <div className={cx('content')}>
@@ -293,7 +280,11 @@ function Player() {
             </div>
             <div className={cx('control')}>
                 <div className={cx('handler')}>
-                    <Button circles="true" className={cx(isRandom && 'active')} onClick={handleRandom}>
+                    <Button
+                        circles="true"
+                        className={cx(isRandom && 'active', isDisabled && 'disabled')}
+                        onClick={handleRandom}
+                    >
                         <FontAwesomeIcon icon={faShuffle} />
                     </Button>
                     <Button circles="true" onClick={handlePrevSong} className={cx(isDisabled && 'disabled')}>

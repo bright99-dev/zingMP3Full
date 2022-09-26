@@ -5,7 +5,7 @@ import { faGripLines, faMusic, faPlay, faArrowRightArrowLeft } from '@fortawesom
 import classNames from 'classnames/bind';
 import styles from './SongItem.module.scss';
 import images from '~/assets';
-import { setIsPlay } from '~/redux/features/audioSlice';
+import { setIsPlay } from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 

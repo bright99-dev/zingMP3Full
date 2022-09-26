@@ -6,19 +6,16 @@
         display: flex;
         justify-content: space-between;
         h3 {
-            font-size: var(--fz20);
-            color: #fff;
+            font-size: 2rem;
             margin-bottom: 15px;
         }
         .category-link {
+            color: var(--link-text);
             .btn-all {
-                font-size: var(--fz12);
-                color: var(--text);
+                font-size: 1.2rem;
                 text-transform: uppercase;
             }
             .icon {
-                color: var(--text);
-                text-transform: uppercase;
                 margin: 0 20px 0 5px;
             }
             &:hover {

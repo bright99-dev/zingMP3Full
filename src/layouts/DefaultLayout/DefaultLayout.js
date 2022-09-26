@@ -1,22 +1,24 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import classNames from 'classnames/bind';
+
 import Header from '~/layouts/components/Header';
 import Sidebar from '~/layouts/components/Sidebar';
 import RightSidebar from '../components/RightSidebar';
 import Player from '~/layouts/components/Player';
-import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setIsExtendSidebar, setIsOpenSidebarRight } from '~/redux/features/audioSlice';
+import { setIsExtendSidebar, setIsOpenSidebarRight } from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
+    const dispatch = useDispatch();
     const isOpenSidebarRight = useSelector((state) => state.audio.isOpenSidebarRight);
     const currentIndexSongRandom = useSelector((state) => state.audio.currentIndexSongRandom);
     const currentIndexSong = useSelector((state) => state.audio.currentIndexSong);
     const srcRadio = useSelector((state) => state.audio.srcRadio);
     const [sticky, setSticky] = useState(false);
-    const dispatch = useDispatch();
+
     const handleScroll = (e) => {
         if (e.currentTarget.scrollTop) {
             setSticky(true);
@@ -24,6 +26,7 @@ function DefaultLayout({ children }) {
             setSticky(false);
         }
     };
+
     const handleScaleSidebar = () => {
         dispatch(setIsExtendSidebar(false));
     };

@@ -5,6 +5,7 @@ import styles from './Top100.module.scss';
 import Loading from '../Loading';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
+
 const cx = classNames.bind(styles);
 
 function Top100() {
@@ -12,7 +13,6 @@ function Top100() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         request.get('/top100').then((res) => {
-            // console.log(res);
             setIsLoading(false);
             setData(res.data);
             document.title = 'Top 100-Tuyển tập nhạc hay chọn lọc';

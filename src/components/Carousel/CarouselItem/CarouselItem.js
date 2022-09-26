@@ -13,7 +13,7 @@ import {
     setSongId,
     setSrcAudio,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 

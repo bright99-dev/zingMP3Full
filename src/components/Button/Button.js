@@ -5,12 +5,13 @@ import styles from './Button.module.scss';
 const cx = classNames.bind(styles);
 
 function Button({
+    button = true,
     cirlcel = false,
     circlem = false,
     circles = false,
     roundedm = false,
     roundeds = false,
-    circlescolor = false,
+    purple = false,
     children,
     onClick,
     className,
@@ -34,12 +35,13 @@ function Button({
 
     const classes = cx({
         [className]: className,
+        button,
         cirlcel,
         circlem,
         circles,
-        circlescolor,
         roundedm,
         roundeds,
+        purple,
         className,
     });
 

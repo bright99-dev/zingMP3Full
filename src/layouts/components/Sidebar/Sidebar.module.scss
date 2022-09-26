@@ -1,7 +1,7 @@
 .wrapper {
     width: var(--width-sidebar);
     height: 100%;
-    background-color: #2a213a;
+    background-color: var(--sidebar-popup-bg);
     transition: all 0.3s;
     display: flex;
     flex-shrink: 0;
@@ -11,9 +11,9 @@
     .library {
         display: flex;
         flex-direction: column;
-        font-size: 13px;
+        font-size: 1.3rem;
         font-weight: 700;
-        line-height: 19.5px;
+        line-height: 1.9rem;
     }
     .line {
         height: var(--height-line-divider-sidebar);
@@ -35,12 +35,8 @@
             background-position: 25% 50%;
         }
     }
-    .sidebar-bottom::-webkit-scrollbar {
-        width: 4px;
-    }
     .sidebar-bottom::-webkit-scrollbar-thumb {
         background: transparent;
-        border-radius: 10px;
     }
     .sidebar-bottom {
         flex: 1;
@@ -52,14 +48,13 @@
             padding: 15px 8px;
             margin: 10px auto;
             flex-shrink: 0;
-            background: linear-gradient(90deg, #5946ce, #bf6ad9);
+            background: linear-gradient(90deg, var(--primary-bg), var(--link-text-hover));
             border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             .title {
-                font-size: 12px;
-                color: #fff;
+                font-size: 1.2rem;
                 text-align: center;
             }
             .btn-update {
@@ -69,7 +64,7 @@
                     padding: 6px 35px;
                     background-color: #ffdb00;
                     border-color: #ffdb00;
-                    font-size: 12px;
+                    font-size: 1.2rem;
                     border-radius: 999px;
                     color: #32323d;
                     font-weight: 600;
@@ -78,11 +73,10 @@
         }
         .library {
             .library-title {
-                font-size: 13px;
+                font-size: 1.3rem;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                color: #fff;
                 padding: 7px 25px;
                 position: relative;
                 .pencil {
@@ -114,14 +108,13 @@
         .btn-addList {
             height: 100%;
             flex: 1;
-            color: #fff;
             display: flex;
             align-items: center;
             padding-left: 25px;
             font-weight: 700;
             cursor: pointer;
             .plus {
-                font-size: 20px;
+                font-size: 2rem;
                 margin-right: 7px;
                 font-weight: 300;
             }

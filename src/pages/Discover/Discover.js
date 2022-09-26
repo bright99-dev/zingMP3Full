@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import request from '~/utils/httpRequest';
 import Carousel from '~/components/Carousel';
 import Loading from '../Loading';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
-import Button from '~/components/Buttons/Button';
+import Button from '~/components/Button';
 import SongItemShort from '~/components/SongItemShort';
 import Album from './components/Album';
 import classNames from 'classnames/bind';
@@ -20,23 +21,22 @@ import {
     setPlaylistId,
     setIsRadioPlay,
     setPlaylistRandom,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setCurrentIndexSongRandom,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
 function Decover() {
+    const dispatch = useDispatch();
+
     const [result, setResult] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isFail, setIsFail] = useState(false);
     const [newReleaseSong, setNewReleaseSong] = useState(true);
     const [newReleaseAlbum, setNewReleaseAlbum] = useState(false);
-
-    const dispatch = useDispatch();
     const isRandom = useSelector((state) => state.audio.isRandom);
-    const playlistId = useSelector((state) => state.audio.playlistId);
+
     const shuffle = (sourceArray) => {
         for (var i = 0; i < sourceArray.length - 1; i++) {
             var j = i + Math.floor(Math.random() * (sourceArray.length - i));
@@ -47,10 +47,12 @@ function Decover() {
         }
         return sourceArray;
     };
+
     const handleNewReleaseSong = () => {
         setNewReleaseSong(true);
         setNewReleaseAlbum(false);
     };
+
     const handleNewReleaseAlbum = () => {
         setNewReleaseSong(false);
         setNewReleaseAlbum(true);
@@ -73,7 +75,7 @@ function Decover() {
                 dispatch(setSongId(song.encodeId));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setCurrentIndexSongRandom(-1));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
@@ -82,19 +84,17 @@ function Decover() {
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setSongId(song.encodeId));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             }
         } else {
             alert('This is vip song');
         }
-        console.log(playlistId);
     };
 
     useEffect(() => {
         request.get('/home').then((res) => {
-            // console.log(res.data);
             setIsLoading(false);
             setResult(res.data.items);
             document.title = 'ZingMP3 | Nghe tải nhạc chất lượng cao trên desktop, mobile và ...';
@@ -103,8 +103,6 @@ function Decover() {
 
     if (isLoading) {
         return <Loading />;
-    } else if (isFail) {
-        return <h1>Bi Loi</h1>;
     } else {
         return (
             <div className={cx('wrapper')}>

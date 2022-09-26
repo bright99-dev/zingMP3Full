@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ChartSongs.module.scss';
-
 import SongItem from '~/components/SongItem';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 

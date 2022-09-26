@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './RightSidebar.module.scss';
 import SongItem from '~/components/SongItem';
-import Button from '~/components/Buttons/Button';
+import Button from '~/components/Button';
 import {
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setInfoSongPlayer,
     setIsPlay,
     setPlaylistRandom,
@@ -15,7 +15,7 @@ import {
     setCurrentIndexSongRandom,
     setSrcAudio,
     setCurrentTime,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -61,7 +61,7 @@ function RightSidebar() {
         let indexSong = playlist.findIndex((item) => item.encodeId === song.encodeId);
         let randomIndexSong = playlistRandom.findIndex((item) => item.encodeId === song.encodeId);
         dispatch(setCurrentIndexSongRandom(randomIndexSong));
-        dispatch(setCurrnetIndexSong(indexSong));
+        dispatch(setCurrentIndexSong(indexSong));
         dispatch(setInfoSongPlayer(song));
         dispatch(setSongId(song.encodeId));
         dispatch(setSrcAudio(''));
@@ -74,6 +74,7 @@ function RightSidebar() {
             dispatch(setPlaylistRandom(shuffle([...playlistRandom])));
             dispatch(setCurrentIndexSongRandom(-1));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isRandom]);
 
     return (

@@ -15,7 +15,7 @@ import {
     setSongId,
     setPlaylistRandom,
     setPlaylistSong,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 

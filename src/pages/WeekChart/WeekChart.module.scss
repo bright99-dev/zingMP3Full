@@ -37,9 +37,8 @@
         position: relative;
         .title {
             h3 {
-                font-size: var(--fz40);
+                font-size: 4rem;
                 font-weight: 800;
-                color: #fff;
             }
         }
         .tab {
@@ -48,24 +47,26 @@
             margin: 30px 0;
             align-items: center;
             .tab-item {
-                font-size: var(--fz24);
+                font-size: 2.4rem;
                 text-transform: uppercase;
                 white-space: nowrap;
                 font-weight: 800;
-                color: #fff;
+                color: var(--white);
+                opacity: 0.8;
                 margin-right: 35px;
                 padding: 15px 0;
                 border-bottom: 3px solid transparent;
                 &:hover {
-                    color: #fff;
+                    opacity: 1;
                 }
             }
             .active {
-                border-bottom: 3px solid #7200a1;
+                border-bottom: 3px solid var(--purple-primary);
+                opacity: 1;
             }
         }
         .time {
-            background-color: #36303f;
+            background-color: hsla(0, 0%, 100%, 0.1);
             border: none;
             &:hover {
                 opacity: 0.8;
@@ -77,12 +78,5 @@
         overflow-y: scroll;
         padding-bottom: 40px;
         position: relative;
-    }
-    .content::-webkit-scrollbar {
-        width: 4px;
-    }
-    .content::-webkit-scrollbar-thumb {
-        background: #999;
-        border-radius: 10px;
     }
 }

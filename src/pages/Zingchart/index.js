@@ -7,7 +7,7 @@ import styles from './Zingchart.module.scss';
 import ChartSongs from './ChartSongs';
 import Loading from '../Loading';
 import WeekChart from './WeekChart';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 import {
     setSrcAudio,
     setCurrentTime,
@@ -18,26 +18,25 @@ import {
     setPlaylistId,
     setIsRadioPlay,
     setPlaylistRandom,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setCurrentIndexSongRandom,
     setRandom,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 function Zingchart() {
     const cx = classNames.bind(styles);
-
     const dispatch = useDispatch();
     const isRandom = useSelector((state) => state.audio.isRandom);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);
-
     const [isLoading, setIsLoading] = useState(true);
     const [result, setResult] = useState([]);
 
     useEffect(() => {
         request.get('/chart/home').then((res) => {
+            console.log(res);
             setIsLoading(false);
             setResult(res.data);
             document.title = '#zingchart | Xem bài hát, album, MV đang hot hiện tại';
@@ -72,7 +71,7 @@ function Zingchart() {
                 dispatch(setSongId(song.encodeId));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setCurrentIndexSongRandom(-1));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
@@ -81,7 +80,7 @@ function Zingchart() {
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setSongId(song.encodeId));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             }
@@ -102,8 +101,8 @@ function Zingchart() {
                     <h2>#zingchart</h2>
                     {result.RTChart.sectionId !== playlistId && (
                         <Button
-                            circlem="true"
-                            className={cx('play-btn')}
+                            circlem
+                            purple
                             onClick={() => {
                                 handlePlaySong(result.RTChart.items[0], result.RTChart.items, result.RTChart.sectionId);
                                 dispatch(setRandom(false));
@@ -114,8 +113,8 @@ function Zingchart() {
                     )}
                     {result.RTChart.sectionId === playlistId && isPlay && (
                         <Button
-                            circlem="true"
-                            className={cx('play-btn')}
+                            circlem
+                            purple
                             onClick={() => {
                                 dispatch(setIsPlay(false));
                             }}
@@ -125,8 +124,8 @@ function Zingchart() {
                     )}
                     {result.RTChart.sectionId === playlistId && !isPlay && (
                         <Button
-                            circlem="true"
-                            className={cx('play-btn')}
+                            circlem
+                            purple
                             onClick={() => {
                                 dispatch(setIsPlay(true));
                             }}

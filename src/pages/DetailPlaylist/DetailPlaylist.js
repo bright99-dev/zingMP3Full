@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 import request from '~/utils/httpRequest';
 import classNames from 'classnames/bind';
 import styles from './DetailPlaylist.module.scss';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 import SongItem from '~/components/SongItem';
 import Loading from '../Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,13 +17,13 @@ import {
     setRandom,
     setPlaylistId,
     setIsRadioPlay,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setPlaylistRandom,
     setCurrentIndexSongRandom,
     setCurrentTime,
     setSrcAudio,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -41,30 +40,9 @@ function DetailPlaylist() {
     const thumbRef = useRef();
     const imgRef = useRef();
 
-    function shuffle(array) {
-        var currentIndex = array.length,
-            temporaryValue,
-            randomIndex;
-
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array;
-    }
-
     function shuffle(sourceArray) {
         for (var i = 0; i < sourceArray.length - 1; i++) {
             var j = i + Math.floor(Math.random() * (sourceArray.length - i));
-
             var temp = sourceArray[j];
             sourceArray[j] = sourceArray[i];
             sourceArray[i] = temp;
@@ -93,17 +71,15 @@ function DetailPlaylist() {
                 dispatch(setSongId(song.encodeId));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
-                dispatch(setCurrentIndexSongRandom(-1));
+                dispatch(setCurrentIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             } else {
                 dispatch(setPlaylistRandom(playlistCanPlay));
-                dispatch(setCurrentIndexSongRandom(-1));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setSongId(song.encodeId));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
+                dispatch(setCurrentIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             }
@@ -139,7 +115,7 @@ function DetailPlaylist() {
             dispatch(setInfoSongPlayer(songsCanPlay[randomIndex]));
             dispatch(setPlaylistSong(songsCanPlay));
             dispatch(setPlaylistRandom(shuffle([...songsCanPlay])));
-            dispatch(setCurrnetIndexSong(randomIndex));
+            dispatch(setCurrentIndexSong(randomIndex));
             dispatch(setCurrentIndexSongRandom(-1));
             dispatch(setRandom(true));
             dispatch(setIsDisabled(false));
@@ -156,6 +132,7 @@ function DetailPlaylist() {
                 handlePlayRandom(res.data.song.items, id);
             }
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
     if (isLoading) {
         return <Loading />;
@@ -205,6 +182,7 @@ function DetailPlaylist() {
                             ''
                         )}
                     </div>
+
                     <div className={cx('desc')}>
                         <h3 className={cx('title')}>{data.title}</h3>
                         <p className={cx('time')}>Cập nhật: {new Date(1655863942 * 1000).toLocaleDateString()}</p>
@@ -228,34 +206,35 @@ function DetailPlaylist() {
                         </div>
                         <p className={cx('liked')}>{data.like} người yêu thích</p>
                     </div>
-                    <div className="btn-playlist">
-                        {playlistId === data.encodeId && isPlay ? (
-                            <Button roundedm className={cx('play-btn')} onClick={handlePlaylist}>
-                                TẠM DỪNG
-                            </Button>
-                        ) : (
-                            ''
-                        )}
-                        {playlistId === data.encodeId && isPlay === false ? (
-                            <Button roundedm className={cx('play-btn')} onClick={handlePlaylist}>
-                                TIẾP TỤC PHÁT
-                            </Button>
-                        ) : (
-                            ''
-                        )}
-                        {playlistId !== data.encodeId ? (
-                            <Button
-                                roundedm
-                                className={cx('play-btn')}
-                                onClick={() => handlePlayRandom(data.song.items, data.encodeId)}
-                            >
-                                PHÁT NGẪU NHIÊN
-                            </Button>
-                        ) : (
-                            ''
-                        )}
-                    </div>
+
+                    {playlistId === data.encodeId && isPlay ? (
+                        <Button roundedm purple className={cx('play-btn')} onClick={handlePlaylist}>
+                            TẠM DỪNG
+                        </Button>
+                    ) : (
+                        ''
+                    )}
+                    {playlistId === data.encodeId && isPlay === false ? (
+                        <Button roundedm purple className={cx('play-btn')} onClick={handlePlaylist}>
+                            TIẾP TỤC PHÁT
+                        </Button>
+                    ) : (
+                        ''
+                    )}
+                    {playlistId !== data.encodeId ? (
+                        <Button
+                            roundedm
+                            purple
+                            className={cx('play-btn')}
+                            onClick={() => handlePlayRandom(data.song.items, data.encodeId)}
+                        >
+                            PHÁT NGẪU NHIÊN
+                        </Button>
+                    ) : (
+                        ''
+                    )}
                 </div>
+
                 <div className={cx('content')}>
                     <div className={cx('sort-description')}>
                         {data.sortDescription && <span>Lời tựa:</span>} {data.sortDescription}

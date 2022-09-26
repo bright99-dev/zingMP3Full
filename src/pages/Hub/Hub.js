@@ -6,7 +6,7 @@ import Loading from '../Loading';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
 import ItemTopic from '~/components/ItemTopic';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -35,7 +35,6 @@ function Hub() {
             setData(res.data);
             setTopic(res.data.topic.slice(0, 8));
             document.title = 'Chủ Đề Nhạc Hot | Tuyển tập nhạc hay chọn lọc';
-            // console.log(data);
         });
     }, []);
     if (isLoading) {
@@ -60,15 +59,13 @@ function Hub() {
                         {contentBtn}
                     </Button>
                 </div>
-                <div className={cx('genre')}>
-                    {data.genre.map((section) => (
-                        <Section title={section.title} key={section.encodeId} data={section} btn={true}>
-                            {section.playlists.slice(0, 5).map((playlist) => (
-                                <Item key={playlist.encodeId} data={playlist} />
-                            ))}
-                        </Section>
-                    ))}
-                </div>
+                {data.genre.map((section) => (
+                    <Section title={section.title} key={section.encodeId} data={section} btn={true}>
+                        {section.playlists.slice(0, 5).map((playlist) => (
+                            <Item key={playlist.encodeId} data={playlist} />
+                        ))}
+                    </Section>
+                ))}
             </div>
         );
     }

@@ -1,12 +1,12 @@
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 import styles from './WeekChartItem.module.scss';
 import SongItem from '~/components/SongItem';
-import { setRandom, setIsPlay } from '~/redux/features/audioSlice';
+import { setRandom, setIsPlay } from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -26,6 +26,7 @@ function WeekChartItem({ data, name, onClick }) {
                     {isPlay && playlistId === data.playlistId && (
                         <Button
                             circles
+                            purple
                             className={cx('play-btn')}
                             onClick={() => {
                                 dispatch(setIsPlay(false));
@@ -37,6 +38,7 @@ function WeekChartItem({ data, name, onClick }) {
                     {playlistId !== data.playlistId && (
                         <Button
                             circles
+                            purple
                             className={cx('play-btn')}
                             onClick={() => {
                                 dispatch(setRandom(false));
@@ -49,6 +51,7 @@ function WeekChartItem({ data, name, onClick }) {
                     {!isPlay && playlistId === data.playlistId && (
                         <Button
                             circles
+                            purple
                             className={cx('play-btn')}
                             onClick={() => {
                                 dispatch(setIsPlay(true));
@@ -58,10 +61,9 @@ function WeekChartItem({ data, name, onClick }) {
                         </Button>
                     )}
                 </div>
-                <div className={cx('content', 'mini')}>
+                <div className={cx('content')}>
                     {miniListItems.map((miniListItem, index) => (
                         <SongItem
-                            weekchart
                             serial={true}
                             index={index}
                             type="mini"

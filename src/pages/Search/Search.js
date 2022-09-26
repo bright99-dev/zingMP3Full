@@ -13,7 +13,7 @@ import {
     setSrcAudio,
     setCurrentTime,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';

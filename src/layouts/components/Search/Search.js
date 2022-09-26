@@ -8,7 +8,7 @@ import { faCircleXmark, faSearch } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useDebounce } from '~/hooks';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 import SongItem from '~/components/SongItem';
 import {
     setSongId,
@@ -18,7 +18,7 @@ import {
     setPlaylistSong,
     setIsRadioPlay,
     setPlaylistRandom,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
@@ -49,7 +49,7 @@ function Search() {
                 console.log(res);
                 setSearchResult(res.data.songs || []);
             });
-    }, [debounced]);
+    }, [debounced, searchValue]);
 
     const handleChangeInput = (e) => {
         setSearchValue(e.target.value);

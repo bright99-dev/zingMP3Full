@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './WeekChart.module.scss';
 import request from '~/utils/httpRequest';
 import WeekChartContent from './WeekChartContent';
 import Loading from '../Loading';
-import Button from '~/components/Buttons';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 

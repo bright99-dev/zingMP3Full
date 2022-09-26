@@ -14,10 +14,10 @@ import {
     setPlaylistId,
     setIsRadioPlay,
     setPlaylistRandom,
-    setCurrnetIndexSong,
+    setCurrentIndexSong,
     setCurrentIndexSongRandom,
     setIsDisabled,
-} from '~/redux/features/audioSlice';
+} from '~/redux/audioSlice';
 
 function WeekChartContent() {
     const dispatch = useDispatch();
@@ -55,7 +55,7 @@ function WeekChartContent() {
                 dispatch(setSongId(song.encodeId));
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setCurrentIndexSongRandom(-1));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
@@ -64,7 +64,7 @@ function WeekChartContent() {
                 dispatch(setInfoSongPlayer(song));
                 dispatch(setSongId(song.encodeId));
                 dispatch(setPlaylistSong(playlistCanPlay));
-                dispatch(setCurrnetIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
+                dispatch(setCurrentIndexSong(playlistCanPlay.findIndex((item) => item.encodeId === song.encodeId)));
                 dispatch(setIsPlay(true));
                 dispatch(setIsDisabled(false));
             }
