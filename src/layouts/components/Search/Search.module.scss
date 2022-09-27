@@ -5,7 +5,6 @@
         width: 100%;
         height: 100%;
         position: relative;
-        color: #fff;
         z-index: 9;
         .search-input {
             width: 100%;
@@ -14,11 +13,11 @@
             border: transparent;
             outline: none;
             background-color: hsla(0, 0%, 100%, 0.1);
-            color: #fff;
+            color: var(--white);
             padding: 0 40px;
             &::placeholder {
-                color: #dadada;
-                font-size: 14px;
+                color: var(--link-text);
+                font-size: 1.4rem;
             }
         }
         .search-btn {
@@ -26,19 +25,22 @@
             left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 20px;
-            color: #fff;
+            font-size: 2rem;
+            color: var(--link-text);
+            &.disabled {
+                pointer-events: none;
+            }
         }
         .clear-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             right: 10px;
-            color: #fff;
-            font-size: 20px;
+            color: var(--link-text);
+            font-size: 2rem;
         }
         &.bg {
-            background-color: #432275;
+            background-color: var(--primary-bg);
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             .search-input {
@@ -55,22 +57,14 @@
         margin-top: -20px;
         height: 300px;
         overflow-y: overlay;
-        background-color: #432275;
+        background-color: var(--primary-bg);
         z-index: 5;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         z-index: 9 !important;
         .search-title {
-            font-size: 14px;
-            color: #fff;
+            font-size: 1.4rem;
             padding: 10px;
         }
-    }
-    .search-result::-webkit-scrollbar {
-        width: 4px;
-    }
-    .search-result::-webkit-scrollbar-thumb {
-        background: #999;
-        border-radius: 10px;
     }
 }

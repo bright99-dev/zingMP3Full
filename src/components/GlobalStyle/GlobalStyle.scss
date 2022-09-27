@@ -12,11 +12,10 @@
     --sidebar-popup-bg: #2a213a;
     --sidebar-right-bg: #120822;
     --player-bg: #120c1c;
+    --grey: #333;
     --font-family: 'Inter';
-
     --offset-top: 70px;
     --offset-padding-page: 0 4%;
-
     --height-logo: 70px;
     --width-sidebar: 240px;
     --width-sidebar-extend: 240px;
@@ -78,8 +77,8 @@ body {
         font-family: 'Inter';
         border-radius: 8px;
         font-weight: 600;
-        font-size: 12px;
-        background-color: #333;
+        font-size: 1.2rem;
+        background-color: var(--grey);
         color: var(--white);
     }
     .tippy-content {

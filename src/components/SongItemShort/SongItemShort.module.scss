@@ -6,6 +6,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    &.bg {
+        background-color: hsla(0, 0%, 100%, 0.05);
+    }
     .avatar {
         height: 60px;
         width: 60px;

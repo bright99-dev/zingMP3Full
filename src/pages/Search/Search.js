@@ -22,12 +22,13 @@ import SongItem from '~/components/SongItem';
 import SongItemShort from '~/components/SongItemShort';
 import Item from '~/components/Item';
 import Loading from '../Loading';
+import Artist from '~/components/Artist';
 
 const cx = classNames.bind(styles);
 
 function Search() {
-    const loaction = useLocation();
-    const { keyword } = loaction.state;
+    const location = useLocation();
+    const keyword = localStorage.getItem('searchKeyWord');
     const [data, setData] = useState({});
     const [isLoading, setIsloading] = useState(true);
     const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function Search() {
         request.get(`/search?keyword=${keyword}`).then((res) => {
             setIsloading(false);
             setData(res.data);
-            console.log(data);
+            console.log(data.songs);
         });
     }, [keyword]);
 
@@ -59,11 +60,27 @@ function Search() {
     } else {
         return (
             <div className={cx('wrapper')}>
-                <h1>Kết quả tìm kiếm </h1>
-                <div className={cx('song-short')}>
-                    <span className={cx('title')}>Nổi bật</span>
+                <h3>Kết quả tìm kiếm </h3>
+                <span className={cx('title')}>Nổi bật</span>
+                <div className={cx('grid-song')}>
                     {data.songs.slice(0, 1).map((song) => (
-                        <SongItemShort onClick={() => handlePlaySong(song)} key={song.encodeId} data={song} />
+                        <SongItemShort
+                            active={true}
+                            onClick={() => handlePlaySong(song)}
+                            key={song.encodeId}
+                            data={song}
+                        />
+                    ))}
+                    {data.songs.slice(0, 1).map((song) => (
+                        <Artist active={true} onClick={() => handlePlaySong(song)} key={song.encodeId} data={song} />
+                    ))}
+                    {data.songs.slice(1, 2).map((song) => (
+                        <SongItemShort
+                            active={true}
+                            onClick={() => handlePlaySong(song)}
+                            key={song.encodeId}
+                            data={song}
+                        />
                     ))}
                 </div>
 

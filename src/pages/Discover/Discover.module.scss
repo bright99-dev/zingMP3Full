@@ -5,8 +5,7 @@
         padding: var(--offset-padding-page);
         margin: 30px 0;
         h3 {
-            color: #fff;
-            font-size: 20px;
+            font-size: 2rem;
         }
         .header {
             margin: 20px 0;
@@ -15,8 +14,8 @@
                 border-color: var(--bg-hover-color);
                 text-transform: uppercase;
                 &.active {
-                    background-color: #670091;
-                    border-color: #670091;
+                    background-color: var(--purple-primary);
+                    border-color: var(--purple-primary);
                 }
             }
         }

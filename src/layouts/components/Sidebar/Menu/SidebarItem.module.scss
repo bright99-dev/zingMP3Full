@@ -1,18 +1,16 @@
 .wrapper {
     padding: 7px 25px;
-    text-decoration: none;
-    color: var(--link-text-color);
+    color: var(--white);
+    opacity: 0.9;
     border-left: 3px solid transparent;
     width: 100%;
-    display: inline-block;
     .icon {
-        font-size: 20px !important;
+        font-size: 2rem !important;
     }
     .title {
         padding-left: 10px;
         &.show {
             display: flex !important;
-            justify-content: flex-start !important;
         }
     }
     .liveicon {
@@ -20,19 +18,19 @@
     }
     .icon-play {
         float: right;
-        font-size: 20px;
+        font-size: 2rem;
         visibility: hidden;
     }
     &:hover {
-        color: #fff;
+        opacity: 1;
     }
     &:hover .icon-play {
         visibility: visible;
     }
     &.active {
-        border-left: 3px solid #7200a1;
+        border-left: 3px solid var(--purple-primary);
         background-color: hsla(0, 0%, 100%, 0.1);
-        color: #fff;
+        opacity: 1;
     }
     &.not-active {
         border-left: 3px solid transparent !important;
@@ -46,17 +44,6 @@
     justify-content: flex-start;
     flex-shrink: 0;
     flex-grow: 0;
-}
-.library {
-    .wrapper {
-        color: var(--link-text-color);
-        &.active {
-            border-left: 3px solid transparent !important;
-        }
-        &:hover {
-            color: #fff;
-        }
-    }
 }
 @media screen and (max-width: 1200px) {
     .wrapper {

@@ -8,7 +8,7 @@ import Section from '~/components/Section';
 import Item from '~/components/Item';
 import Button from '~/components/Button';
 import SongItemShort from '~/components/SongItemShort';
-import Album from './components/Album';
+import Album from '../../components/Album';
 import classNames from 'classnames/bind';
 import styles from './Discover.module.scss';
 import {
@@ -152,7 +152,7 @@ function Decover() {
                 {result.map(
                     (playlist, index) =>
                         playlist.sectionType === 'playlist' && (
-                            <Section key={index} title={playlist.title} className={cx('section')}>
+                            <Section key={index} title={playlist.title}>
                                 {playlist.items.map((item) => (
                                     <Item key={item.encodeId} data={item} />
                                 ))}
