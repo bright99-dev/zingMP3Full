@@ -46,7 +46,7 @@ function WeekChartContent() {
             dispatch(setCurrentTime(0));
             dispatch(setSrcAudio(''));
             for (var i = 0; i < playlist.length; i++) {
-                if (playlist[i].streamingStatus === 1 && playlist[i].isWorldWide) {
+                if (playlist[i].streamingStatus === 1) {
                     playlistCanPlay.push(playlist[i]);
                 }
             }
