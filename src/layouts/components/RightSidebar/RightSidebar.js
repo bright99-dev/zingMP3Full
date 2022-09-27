@@ -92,7 +92,7 @@ function RightSidebar() {
             <div className={cx('content')}>
                 {playlistnext && (
                     <div className={cx('next-list')}>
-                        <SongItem type="mini" data={currentSong} className={cx('current-song')} />
+                        <SongItem type="mini" violet={true} data={currentSong} className={cx('current-song')} />
                         {isRandom
                             ? playlistRandom.map((song, index) => {
                                   if (song.streamingStatus !== 1 || currentIndexSongRandom === index) {
@@ -104,6 +104,7 @@ function RightSidebar() {
                                                   onClick={() => handlePlaySong(playlist, playlistRandom, song, index)}
                                                   key={index}
                                                   type="mini"
+                                                  violet={true}
                                                   data={song}
                                               />
                                           )
@@ -120,6 +121,7 @@ function RightSidebar() {
                                                   onClick={() => handlePlaySong(playlist, playlistRandom, song, index)}
                                                   key={index}
                                                   type="mini"
+                                                  violet={true}
                                                   data={song}
                                               />
                                           )

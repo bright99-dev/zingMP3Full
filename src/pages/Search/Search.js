@@ -53,6 +53,7 @@ function Search() {
             setData(res.data);
             console.log(data.songs);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [keyword]);
 
     if (isLoading) {
@@ -63,25 +64,19 @@ function Search() {
                 <h3>Kết quả tìm kiếm </h3>
                 <span className={cx('title')}>Nổi bật</span>
                 <div className={cx('grid-song')}>
-                    {data.songs.slice(0, 1).map((song) => (
-                        <SongItemShort
-                            active={true}
-                            onClick={() => handlePlaySong(song)}
-                            key={song.encodeId}
-                            data={song}
-                        />
-                    ))}
-                    {data.songs.slice(0, 1).map((song) => (
-                        <Artist active={true} onClick={() => handlePlaySong(song)} key={song.encodeId} data={song} />
-                    ))}
-                    {data.songs.slice(1, 2).map((song) => (
-                        <SongItemShort
-                            active={true}
-                            onClick={() => handlePlaySong(song)}
-                            key={song.encodeId}
-                            data={song}
-                        />
-                    ))}
+                    <SongItemShort
+                        large={true}
+                        active={true}
+                        onClick={() => handlePlaySong(data.songs[0])}
+                        data={data.songs[0]}
+                    />
+                    <Artist active={true} onClick={() => handlePlaySong(data.songs[0])} data={data.songs[0]} />
+                    <SongItemShort
+                        large={true}
+                        active={true}
+                        onClick={() => handlePlaySong(data.songs[1])}
+                        data={data.songs[1]}
+                    />
                 </div>
 
                 <span className={cx('title')}>Bài hát</span>

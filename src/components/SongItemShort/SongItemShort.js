@@ -9,7 +9,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-function SongItemShort({ data, className, onClick, active }) {
+function SongItemShort({ data, className, onClick, active, large }) {
     const dispatch = useDispatch();
     const isPlay = useSelector((state) => state.audio.isPlay);
     const songId = useSelector((state) => state.audio.songId);
@@ -25,6 +25,7 @@ function SongItemShort({ data, className, onClick, active }) {
                     : 'vip',
                 className,
                 songId === data.encodeId && 'playing',
+                large && 'large',
                 active && 'bg',
             )}
         >

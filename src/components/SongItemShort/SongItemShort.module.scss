@@ -9,6 +9,12 @@
     &.bg {
         background-color: hsla(0, 0%, 100%, 0.05);
     }
+    &.large {
+        .avatar {
+            height: 84px;
+            width: 84px;
+        }
+    }
     .avatar {
         height: 60px;
         width: 60px;

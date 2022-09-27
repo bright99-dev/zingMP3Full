@@ -9,7 +9,7 @@ import { setIsPlay } from '~/redux/audioSlice';
 
 const cx = classNames.bind(styles);
 
-function SongItem({ serial, data, index, type, className, onClick, noticon }) {
+function SongItem({ serial, data, index, type, className, onClick, noticon, violet }) {
     const dispatch = useDispatch();
     const isPlay = useSelector((state) => state.audio.isPlay);
     const songId = useSelector((state) => state.audio.songId);
@@ -35,6 +35,7 @@ function SongItem({ serial, data, index, type, className, onClick, noticon }) {
                     ? ''
                     : 'vip',
                 className,
+                violet && 'violet',
                 songId === data.encodeId && 'playing',
             )}
         >

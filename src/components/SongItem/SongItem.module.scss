@@ -26,32 +26,29 @@
     &.no-content:hover {
         background-color: transparent;
     }
-}
-.wrapper.playing {
-    background-color: hsla(0, 0%, 100%, 0.1);
-    .song-play {
-        display: flex;
+    &.mini {
+        display: grid;
+        grid-template-columns: 8fr 2fr;
+        .icon-gridline {
+            display: none;
+        }
+        .content-center {
+            display: none;
+        }
+        .serial {
+            width: 40px;
+        }
+        border-bottom: 1px solid transparent;
     }
-}
-.mini.wrapper.playing {
-    background-color: #7200a1;
-    .song-play {
-        display: flex;
+    &.playing {
+        background-color: hsla(0, 0%, 100%, 0.1);
+        .song-play {
+            display: flex;
+        }
     }
-}
-.mini.wrapper {
-    display: grid;
-    grid-template-columns: 8fr 2fr;
-    .icon-gridline {
-        display: none;
+    &.playing.violet {
+        background-color: var(--purple-primary);
     }
-    .content-center {
-        display: none;
-    }
-    .serial {
-        width: 40px;
-    }
-    border-bottom: 1px solid transparent;
 }
 .content-left {
     height: 100%;
