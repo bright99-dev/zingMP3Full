@@ -1,7 +1,7 @@
 .wrapper {
     width: 100%;
     margin-top: 40px;
-    color: #fff;
+    color: var(--white);
     position: relative;
     .bg-blur {
         position: absolute;
@@ -17,10 +17,10 @@
         bottom: 0;
         right: 0;
         inset: 0px;
-        background-color: rgba(32, 19, 53, 0.9);
+        background-color: var(--chart-bg-img-alpha);
     }
     .title {
-        font-size: var(--fz40);
+        font-size: 4rem;
         padding: 4% 0 0 4%;
         position: relative;
     }

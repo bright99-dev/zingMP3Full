@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--primary);
+    background-color: var(--layout-bg);
     display: flex;
     flex-direction: column;
     .container {
@@ -28,6 +28,7 @@
                 z-index: 99;
                 &.sticky {
                     background-color: var(--layout-bg) !important;
+                    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
                 }
             }
             .page {
@@ -51,9 +52,27 @@
             height: calc(100vh - var(--height-player));
             right: 0;
             z-index: 99;
-            background-color: var(--primary);
+            background-color: var(--layout-bg);
             transition: all 0.5s ease-out;
         }
+    }
+    .theme-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99999;
+        height: 90vh;
+        width: 70vw;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.5);
     }
 }
 @media screen and (max-width: 1599px) {

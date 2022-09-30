@@ -7,6 +7,7 @@ const initialState = {
     isMute: false,
     isExtendSidebar: false,
     isOpenSidebarRight: false,
+    isOpenThemModal: false,
     isDisabled: JSON.parse(localStorage.getItem('disabled')) || false,
     songId: localStorage.getItem('songId') || '',
     playlistId: localStorage.getItem('playlistId') || '',
@@ -18,6 +19,23 @@ const initialState = {
         title: 'Tên bài hát',
         artistsNames: 'artistsNames',
         duration: 0,
+    },
+    themeCurrent: JSON.parse(localStorage.getItem('themeCurrent')) || {
+        color: {
+            primaryBg: '#432275',
+            layoutBg: '#170f23',
+            sideBarPopupBg: '#2a213a',
+            alphaLayoutBg: 'rgba(41, 21, 71, 0.8)',
+            queueLayoutPopupBg: '#120822',
+            blurQueueBg: 'rgba(30, 21, 47, 0.9019607843137255)',
+            purplePrimary: '#7200a1',
+            linkTextHover: '#c662ef',
+            chartBgImgAlpha: 'rgba(32,19,53,0.9)',
+            linkText: '#97939c',
+            alphaActiveSidebar: 'hsla(0, 0%, 100%, 0.1)',
+            white: '#fff',
+            grey: '#333',
+        },
     },
     srcAudio: '',
     srcRadio: JSON.parse(localStorage.getItem('srcRadio')) || '',
@@ -49,6 +67,9 @@ const audioSlice = createSlice({
         setIsOpenSidebarRight: (state, action) => {
             state.isOpenSidebarRight = action.payload;
         },
+        setIsOpenThemModal: (state, action) => {
+            state.isOpenThemModal = action.payload;
+        },
         setIsDisabled: (state, action) => {
             state.isDisabled = action.payload;
             localStorage.setItem('disabled', JSON.stringify(action.payload));
@@ -67,6 +88,10 @@ const audioSlice = createSlice({
         setInfoSongPlayer: (state, action) => {
             state.infoSongPlayer = { ...action.payload };
             localStorage.setItem('songInfo', JSON.stringify({ ...action.payload }));
+        },
+        setThemeCurrent: (state, action) => {
+            state.themeCurrent = { ...action.payload };
+            localStorage.setItem('themeCurrent', JSON.stringify({ ...action.payload }));
         },
         setSrcAudio: (state, action) => {
             state.srcAudio = action.payload;
@@ -118,43 +143,6 @@ const audioSlice = createSlice({
             state.isRandom = action.payload;
             localStorage.setItem('random', JSON.stringify(action.payload));
         },
-        // handleSong: (song, playlist, id) => {
-        //     // eslint-disable-next-line react-hooks/rules-of-hooks
-        //     const dispatch = useDispatch();
-        //     let playlistCanPlay = [];
-        //     if (song.streamingStatus === 1 && song.isWorldWide) {
-        //         dispatch(setIsRadioPlay(false));
-        //         dispatch(setPlaylistId(id));
-        //         dispatch(setCurrentTime(0));
-        //         dispatch(setSrcAudio(''));
-        //         for (var i = 0; i < playlist.length; i++) {
-        //             if (playlist[i].streamingStatus === 1 && playlist[i].isWorldWide) {
-        //                 playlistCanPlay.push(playlist[i]);
-        //             }
-        //         }
-        //         if (isRandom) {
-        //             dispatch(setPlaylistRandom(shuffle([...playlistCanPlay])));
-        //             dispatch(setSongId(song.encodeId));
-        //             dispatch(setInfoSongPlayer(song));
-        //             dispatch(setPlaylistSong(playlistCanPlay));
-        //             dispatch(setCurrentIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
-        //             // dispatch(setCurrentIndexSongRandom(-1));
-        //             dispatch(setIsPlay(true));
-        //             dispatch(setIsDisabled(false));
-        //         } else {
-        //             dispatch(setPlaylistRandom(playlistCanPlay));
-        //             // dispatch(setCurrentIndexSongRandom(-1));
-        //             dispatch(setInfoSongPlayer(song));
-        //             dispatch(setSongId(song.encodeId));
-        //             dispatch(setPlaylistSong(playlistCanPlay));
-        //             dispatch(setCurrentIndexSong(getCurrentIndexSong(playlistCanPlay, song)));
-        //             dispatch(setIsPlay(true));
-        //             dispatch(setIsDisabled(false));
-        //         }
-        //     } else {
-        //         alert('This is vip song');
-        //     }
-        // },
     },
 });
 
@@ -163,7 +151,9 @@ export const {
     setIsDisabled,
     setIsExtendSidebar,
     setIsOpenSidebarRight,
+    setIsOpenThemModal,
     changeIconVolume,
+    setThemeCurrent,
     setSongId,
     setInfoSongPlayer,
     setCurrentTime,

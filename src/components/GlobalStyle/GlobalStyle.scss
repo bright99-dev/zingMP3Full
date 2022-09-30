@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
 :root {
-    --primary: #170f23;
-    --purple-primary: #7200a1;
-    --white: #fff;
-    --link-text: #97939c;
-    --link-text-hover: #c662ef;
-    --layout-bg: #170f23;
-    --alpha-layout-bg: rgba(41, 21, 71, 0.8);
-    --bg-hover-color: #3a3344;
     --primary-bg: #432275;
+    --layout-bg: #170f23;
     --sidebar-popup-bg: #2a213a;
-    --sidebar-right-bg: #120822;
-    --player-bg: #120c1c;
+    --alpha-layout-bg: rgba(41, 21, 71, 0.8);
+    --queue-player-popup-bg: #120822;
+    --blur-queue-bg: rgba(30, 21, 47, 0.9019607843137255); //
+    --purple-primary: #7200a1;
+    --link-text-hover: #c662ef;
+    --chart-bg-img-alpha: rgba(32, 19, 53, 0.9);
+    --link-text: #dadada;
+    --alpha-active-sidebar: 'hsla(0, 0%, 100%, 0.1)';
+    --white: #fff;
     --grey: #333;
+
     --font-family: 'Inter';
     --offset-top: 70px;
     --offset-padding-page: 0 4%;
@@ -80,7 +81,7 @@ body {
         font-weight: 600;
         font-size: 1.2rem;
         background-color: var(--grey);
-        color: var(--white);
+        color: #fff;
     }
     .tippy-content {
         padding: 5px 10px;

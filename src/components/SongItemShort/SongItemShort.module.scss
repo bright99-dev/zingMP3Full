@@ -41,6 +41,7 @@
 
     .song-play {
         position: absolute;
+        color: #fff;
         background-color: rgba(0, 0, 0, 0.5);
         top: 0;
         width: 100%;
@@ -93,14 +94,14 @@
         }
     }
     &:hover {
-        background-color: hsla(0, 0%, 100%, 0.1);
+        background-color: var(--alpha-active-sidebar);
     }
     &:hover .song-play {
         display: flex;
     }
 }
 .wrapper.playing {
-    background-color: hsla(0, 0%, 100%, 0.1);
+    background-color: var(--alpha-active-sidebar);
     .song-play {
         display: flex;
     }

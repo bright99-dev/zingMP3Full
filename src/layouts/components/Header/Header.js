@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Tippy from '@tippyjs/react';
 import Search from '../Search';
 import {
@@ -14,8 +14,7 @@ import {
 import styles from './Header.module.scss';
 import { faVuejs } from '@fortawesome/free-brands-svg-icons';
 import Button from '~/components/Button';
-import { setIsExtendSidebar } from '~/redux/audioSlice';
-import { setIsOpenThemModal } from '~/redux/toggleSlice';
+import { setIsExtendSidebar, setIsOpenThemModal } from '~/redux/audioSlice';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -23,7 +22,7 @@ function Header() {
     const handleOpenSidebar = () => {
         dispatch(setIsExtendSidebar(true));
     };
-    const isOpenThemModal = (state) => state.toggle.isOpenThemModal;
+    const isOpenThemModal = useSelector((state) => state.audio.isOpenThemModal);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('left')}>
@@ -43,14 +42,13 @@ function Header() {
                 </div>
             </div>
             <div className={cx('right')}>
-                <Tippy
-                    content="Chủ đề"
-                    placement="bottom"
-                    onClick={() => {
-                        dispatch(setIsOpenThemModal(!isOpenThemModal));
-                    }}
-                >
-                    <span className={cx('icon')}>
+                <Tippy content="Chủ đề" placement="bottom">
+                    <span
+                        className={cx('icon')}
+                        onClick={() => {
+                            dispatch(setIsOpenThemModal(!isOpenThemModal));
+                        }}
+                    >
                         <FontAwesomeIcon icon={faShirt} />
                     </span>
                 </Tippy>

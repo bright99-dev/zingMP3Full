@@ -1,7 +1,7 @@
 .button {
     cursor: pointer;
     border-radius: 999px;
-    color: var(--white);
+    color: #fff;
     font-weight: 500;
     background-color: transparent;
     display: flex;
@@ -37,7 +37,7 @@
     display: inline-block;
     padding: 8px 25px;
     font-size: 1.4rem;
-    border: 1px solid var(--white);
+    border: 1px solid #fff;
     &:hover {
         background-color: var(--bg-hover-color);
     }
@@ -46,7 +46,7 @@
     display: inline-block;
     padding: 4px 24px;
     font-size: 1.2rem;
-    border: 1px solid var(--white);
+    border: 1px solid #fff;
     &:hover {
         opacity: 0.9;
     }

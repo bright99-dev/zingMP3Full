@@ -12,7 +12,7 @@
             border-radius: 999px;
             border: transparent;
             outline: none;
-            background-color: hsla(0, 0%, 100%, 0.1);
+            background-color: var(--alpha-active-sidebar);
             color: var(--white);
             padding: 0 40px;
             &::placeholder {
@@ -43,6 +43,7 @@
             background-color: var(--primary-bg);
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
+            box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
             .search-input {
                 background-color: transparent;
             }
@@ -62,6 +63,7 @@
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         z-index: 9 !important;
+        box-shadow: 0 4px 6px 0 rgb(32 33 36 / 28%);
         .search-title {
             font-size: 1.4rem;
             padding: 10px;

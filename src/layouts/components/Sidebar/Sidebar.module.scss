@@ -22,7 +22,7 @@
         justify-content: center;
         .inner-line {
             width: 80%;
-            border-bottom: 1px solid var(--bg-hover-color);
+            border-bottom: 1px solid rgba(20, 20, 20, 0.1);
         }
     }
     .sidebar-top {
@@ -89,7 +89,7 @@
                     cursor: pointer;
                     visibility: hidden;
                     &:hover {
-                        background-color: var(--bg-hover-color);
+                        background-color: var(--blur-queue-bg);
                     }
                 }
             }
@@ -98,13 +98,13 @@
             }
         }
         &:hover.sidebar-bottom::-webkit-scrollbar-thumb {
-            background: #999;
+            background: var(--link-text);
         }
     }
     .sidebar-button {
         height: var(--height-option-sidebar);
         flex-shrink: 0;
-        border-top: 1px solid var(--bg-hover-color);
+        border-top: 1px solid rgba(20, 20, 20, 0.1);
         .btn-addList {
             height: 100%;
             flex: 1;

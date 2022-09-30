@@ -5,8 +5,9 @@
     grid-template-columns: 3fr 4fr 3fr;
     align-items: center;
     z-index: 1000;
-    background-color: var(--player-bg);
-    border-top: 1px solid var(--bg-hover-color);
+    background-color: var(--layout-bg);
+    border-top: 1px solid var(--sidebar-popup-bg);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 1px 6px rgba(0, 0, 0, 0.3), inset 0 1px 1px hsla(0, 0%, 100%, 0.3);
     overflow: hidden;
     padding: 0 2%;
     .info {
@@ -106,7 +107,7 @@
             display: flex;
             overflow: hidden;
             align-items: center;
-            border-right: 1px solid var(--bg-hover-color);
+            border-right: 1px solid var(--blur-queue-bg);
             padding-right: 15px;
             .volume-progress {
                 width: 70px;
@@ -117,7 +118,7 @@
         .list-song {
             height: 30px;
             width: 30px;
-            background-color: var(--bg-hover-color);
+            background-color: var(--blur-queue-bg);
             border-radius: 5px;
             display: flex;
             align-items: center;
@@ -131,7 +132,7 @@
         }
     }
     .disabled {
-        color: var(--bg-hover-color);
+        color: var(--blur-queue-bg);
         background-color: transparent;
         pointer-events: none;
     }

@@ -17,12 +17,12 @@
             height: 50%;
             right: 15px;
             width: 1px;
-            background-color: var(--bg-hover-color);
+            background-color: var(--blur-queue-bg);
         }
     }
     .tab {
         display: flex;
-        border-bottom: 1px solid var(--bg-hover-color);
+        border-bottom: 1px solid var(--blur-queue-bg);
         .btn {
             padding: 15px 20px;
             opacity: 0.8;

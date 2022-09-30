@@ -1,7 +1,7 @@
 .wrapper {
     padding: 7px 25px;
     color: var(--white);
-    opacity: 0.9;
+    opacity: 0.8;
     border-left: 3px solid transparent;
     width: 100%;
     .icon {
@@ -29,7 +29,7 @@
     }
     &.active {
         border-left: 3px solid var(--purple-primary);
-        background-color: hsla(0, 0%, 100%, 0.1);
+        background-color: var(--alpha-active-sidebar);
         opacity: 1;
     }
     &.not-active {
