@@ -36,9 +36,12 @@ function DefaultLayout({ children }) {
         dispatch(setIsOpenSidebarRight(false));
     };
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', !themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && 'bg-wrapper')}>
             <div className={cx('container')}>
-                <div className={cx('sidebar')} onClick={handleHiddenRightSidebar}>
+                <div
+                    className={cx('sidebar', !themeCurrent.backgroundImg && 'bg-sidebar')}
+                    onClick={handleHiddenRightSidebar}
+                >
                     <Sidebar />
                 </div>
                 <div className={cx('content')}>

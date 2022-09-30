@@ -37,6 +37,7 @@ function Artist() {
     const [isLoading, setIsLoading] = useState(true);
     const [songs, setSongs] = useState([]);
     const isRandom = useSelector((state) => state.audio.isRandom);
+    const themeCurrent = useSelector((state) => state.audio.themeCurrent);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);
 
@@ -139,7 +140,7 @@ function Artist() {
     } else {
         return (
             <div className={cx('wrapper')}>
-                <div className={cx('info')}>
+                <div className={cx('info', !themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && 'bg')}>
                     <div className={cx('bio')}>
                         <h1 className={cx('name')}>{data.name}</h1>
                         <p className={cx('desc')}>{data.sortBiography}</p>

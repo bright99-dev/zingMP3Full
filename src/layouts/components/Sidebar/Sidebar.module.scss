@@ -1,7 +1,8 @@
 .wrapper {
     width: var(--width-sidebar);
     height: 100%;
-    background-color: var(--sidebar-popup-bg);
+    // background-color: var(--sidebar-popup-bg);
+    background-color: transparent;
     transition: all 0.3s;
     display: flex;
     flex-shrink: 0;
@@ -104,7 +105,7 @@
     .sidebar-button {
         height: var(--height-option-sidebar);
         flex-shrink: 0;
-        border-top: 1px solid rgba(20, 20, 20, 0.1);
+        border-top: 1px solid var(--link-text);
         .btn-addList {
             height: 100%;
             flex: 1;
@@ -137,6 +138,7 @@
     left: 0;
     right: 0;
     transition: all 0.3s;
+    background-color: var(--sidebar-popup-bg);
     .logo {
         width: var(--width-sidebar-extend) !important;
         background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg') !important;

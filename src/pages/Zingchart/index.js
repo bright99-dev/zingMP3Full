@@ -31,6 +31,7 @@ function Zingchart() {
     const isRandom = useSelector((state) => state.audio.isRandom);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);
+    const themeCurrent = useSelector((state) => state.audio.themeCurrent);
     const [isLoading, setIsLoading] = useState(true);
     const [result, setResult] = useState([]);
 
@@ -94,9 +95,14 @@ function Zingchart() {
     } else {
         return (
             <div className={cx('wrapper')}>
-                <div className={cx('bg-blur')}></div>
-                <div className={cx('bg-alpha')}></div>
-                <div className={cx('bg-alpha1')}></div>
+                {!themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && (
+                    <>
+                        <div className={cx('bg-blur')}></div>
+                        <div className={cx('bg-alpha')}></div>
+                        <div className={cx('bg-alpha1')}></div>
+                    </>
+                )}
+
                 <div className={cx('header')}>
                     <h2>#zingchart</h2>
                     {result.RTChart.sectionId !== playlistId && (

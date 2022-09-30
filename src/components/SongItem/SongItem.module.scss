@@ -10,6 +10,9 @@
     &:hover {
         background-color: var(--alpha-active-sidebar);
     }
+    .song-play {
+        color: #fff;
+    }
     &:hover .song-play {
         display: flex;
         color: #fff;

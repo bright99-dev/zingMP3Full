@@ -9,6 +9,7 @@
     --purple-primary: #7200a1;
     --link-text-hover: #c662ef;
     --chart-bg-img-alpha: rgba(32, 19, 53, 0.9);
+    --chart-box-bg-alpha: hsla(0, 0%, 100%, 0.05);
     --link-text: #dadada;
     --alpha-active-sidebar: 'hsla(0, 0%, 100%, 0.1)';
     --white: #fff;
@@ -75,6 +76,8 @@ body {
     color: var(--white);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    background-repeat: no-repeat;
+    background-size: 140%;
     .tippy-box {
         font-family: 'Inter';
         border-radius: 8px;

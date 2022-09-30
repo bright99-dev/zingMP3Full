@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './WeekChart.module.scss';
 import WeekChartItem from './WeekChartItem';
@@ -5,6 +6,8 @@ import WeekChartItem from './WeekChartItem';
 const cx = classNames.bind(styles);
 
 function WeekChart({ data, onClick }) {
+    const themeCurrent = useSelector((state) => state.audio.themeCurrent);
+
     const areas = [
         {
             country: 'Việt Nam',
@@ -22,8 +25,12 @@ function WeekChart({ data, onClick }) {
 
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('bg-blur')}></div>
-            <div className={cx('bg-alpha')}></div>
+            {!themeCurrent && (
+                <>
+                    <div className={cx('bg-blur')}></div>
+                    <div className={cx('bg-alpha')}></div>
+                </>
+            )}
             <h3 className={cx('title')}>Bảng Xếp Hạng Tuần</h3>
             <div className={cx('area')}>
                 {areas.map((area, index) => (

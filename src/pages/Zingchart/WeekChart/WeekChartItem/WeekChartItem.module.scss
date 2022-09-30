@@ -4,7 +4,7 @@
     z-index: 1;
     .weekchart-box {
         padding: 20px 10px;
-        background-color: hsla(0, 0%, 100%, 0.05);
+        background-color: var(--chart-box-bg-alpha);
         border-radius: 16px;
         .header {
             display: flex;

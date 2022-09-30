@@ -5,13 +5,15 @@
     overflow-x: hidden;
     .info {
         display: grid;
-        background-color: var(--chart-bg-img-alpha);
         grid-template-columns: 2fr 1fr;
         padding: var(--offset-padding-page);
         padding-top: 100px;
         padding-bottom: 30px;
         text-overflow: ellipsis;
         overflow: hidden;
+        &.bg {
+            background-color: var(--chart-bg-img-alpha);
+        }
         .bio {
             overflow: hidden;
             .name {

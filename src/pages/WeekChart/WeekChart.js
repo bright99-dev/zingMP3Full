@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './WeekChart.module.scss';
 import request from '~/utils/httpRequest';
@@ -10,6 +11,7 @@ import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function WeekChart() {
+    const themeCurrent = useSelector((state) => state.audio.themeCurrent);
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState({});
 
@@ -25,9 +27,13 @@ function WeekChart() {
     } else {
         return (
             <div className={cx('wrapper')}>
-                <div className={cx('bg-blur')}></div>
-                <div className={cx('bg-alpha')}></div>
-                <div className={cx('bg-alpha1')}></div>
+                {!themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && (
+                    <>
+                        <div className={cx('bg-blur')}></div>
+                        <div className={cx('bg-alpha')}></div>
+                        <div className={cx('bg-alpha1')}></div>
+                    </>
+                )}
                 <div className={cx('header')}>
                     <div className={cx('title')}>
                         <h3>Bảng Xếp Hạng Tuần</h3>

@@ -5,16 +5,21 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--layout-bg);
     display: flex;
     flex-direction: column;
+    background-color: transparent;
+    &.bg-wrapper {
+        background-color: var(--layout-bg);
+    }
     .container {
         flex: 1;
         height: calc(100vh - var(--height-player));
         display: flex;
         .sidebar {
-            background-color: var(--sidebar-popup-bg);
             width: var(--width-sidebar);
+            &.bg-sidebar {
+                background-color: var(--sidebar-popup-bg);
+            }
         }
         .content {
             flex: 1;
@@ -32,7 +37,7 @@
                 }
             }
             .page {
-                background-color: var(--layout-bg);
+                // background-color: var(--layout-bg);
                 flex: 1;
                 overflow-y: overlay;
                 position: relative;

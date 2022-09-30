@@ -31,6 +31,7 @@ const initialState = {
             purplePrimary: '#7200a1',
             linkTextHover: '#c662ef',
             chartBgImgAlpha: 'rgba(32,19,53,0.9)',
+            chartBoxBgAlpha: 'hsla(0, 0%, 100%, 0.05)',
             linkText: '#97939c',
             alphaActiveSidebar: 'hsla(0, 0%, 100%, 0.1)',
             white: '#fff',

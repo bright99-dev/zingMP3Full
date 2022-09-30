@@ -30,12 +30,17 @@
         .btn {
             z-index: 1;
             display: none;
+            color: #fff;
+            border-color: #fff;
         }
         .btn + .btn {
             margin-top: 10px;
         }
         .btn-apply {
             border-color: transparent;
+        }
+        &.active {
+            border: 1px solid var(--purple-primary);
         }
     }
     .title {
