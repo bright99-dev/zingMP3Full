@@ -33,6 +33,7 @@ function NewMusic() {
     const isRandom = useSelector((state) => state.audio.isRandom);
     const isPlay = useSelector((state) => state.audio.isPlay);
     const playlistId = useSelector((state) => state.audio.playlistId);
+    const themeCurrent = useSelector((state) => state.audio.themeCurrent);
 
     const shuffle = (sourceArray) => {
         for (var i = 0; i < sourceArray.length - 1; i++) {
@@ -93,9 +94,13 @@ function NewMusic() {
     } else {
         return (
             <div className={cx('wrapper')}>
-                <div className={cx('bg-blur')}></div>
-                <div className={cx('bg-alpha')}></div>
-                <div className={cx('bg-alpha1')}></div>
+                {!themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && (
+                    <>
+                        <div className={cx('bg-blur')}></div>
+                        <div className={cx('bg-alpha')}></div>
+                        <div className={cx('bg-alpha1')}></div>
+                    </>
+                )}
 
                 <div className={cx('header')}>
                     <h3 className={cx('title')}>{data.title}</h3>

@@ -59,7 +59,7 @@
         }
         &.active {
             border: none;
-            background-color: hsla(0, 0%, 100%, 0.1);
+            background-color: var(--alpha-active-sidebar);
         }
     }
 }

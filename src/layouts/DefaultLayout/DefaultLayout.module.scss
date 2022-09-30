@@ -37,7 +37,6 @@
                 }
             }
             .page {
-                // background-color: var(--layout-bg);
                 flex: 1;
                 overflow-y: overlay;
                 position: relative;
@@ -67,8 +66,8 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 99999;
-        height: 90vh;
-        width: 70vw;
+        height: 80vh;
+        width: 60vw;
     }
     .overlay {
         position: fixed;

@@ -5,11 +5,13 @@ import styles from './Top100.module.scss';
 import Loading from '../Loading';
 import Section from '~/components/Section';
 import Item from '~/components/Item';
+import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles);
 
 function Top100() {
     const [data, setData] = useState([]);
+    const themeCurrent = useSelector((state) => state.audio.themeCurrent);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         request.get('/top100').then((res) => {
@@ -25,9 +27,14 @@ function Top100() {
         return (
             <div className={cx('wrapper')}>
                 <div className={cx('banner')}>
-                    <div className={cx('bg-blur')}></div>
-                    <div className={cx('bg-alpha')}></div>
-                    <div className={cx('bg-alpha1')}></div>
+                    <h1>TOP 100</h1>
+                    {!themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && (
+                        <>
+                            <div className={cx('bg-blur')}></div>
+                            <div className={cx('bg-alpha')}></div>
+                            <div className={cx('bg-alpha1')}></div>
+                        </>
+                    )}
                 </div>
                 {data.map((sections, index) => (
                     <Section key={index} title={sections.title}>

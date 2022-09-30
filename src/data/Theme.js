@@ -1,6 +1,6 @@
 export const themeDynamics = [
     {
-        id: '1', //blue
+        id: '1', //light
         title: 'London',
         link: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-thumb.png',
         backgroundImg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-light1.jpg',
@@ -10,7 +10,7 @@ export const themeDynamics = [
             sideBarPopupBg: '#f2f2f2',
             alphaLayoutBg: 'rgba(12,3,3,0.8)',
             queueLayoutPopupBg: '#fff',
-            blurQueueBg: 'rgba(29,55,90,0.9019607843137255)',
+            blurQueueBg: '#ccc',
             purplePrimary: '#6b3483',
             linkTextHover: '#9c32ca',
             chartBgImgAlpha: 'hsla(0,0%,100%,0.9)',
@@ -43,7 +43,7 @@ export const themeDynamics = [
         },
     },
     {
-        id: '3',
+        id: '3', //blue
         title: 'Xanh Da Trời',
         link: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-blue.jpg',
         color: {
@@ -52,7 +52,7 @@ export const themeDynamics = [
             sideBarPopupBg: '#2a4162',
             alphaLayoutBg: 'rgba(29,55,90,0.8)',
             queueLayoutPopupBg: '#0b274c',
-            blurQueueBg: 'rgba(29,55,90,0.9019607843137255)',
+            blurQueueBg: 'hsla(0, 0%, 100%, 0.1)',
             purplePrimary: '#3460f5',
             linkTextHover: '#6e8ffb',
             chartBgImgAlpha: 'rgba(29,55,90,0.9)',
@@ -64,7 +64,7 @@ export const themeDynamics = [
         },
     },
     {
-        id: '4',
+        id: '4', //pink
         title: 'Zing Music Awards',
         link: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/zma.jpg',
         backgroundImgLarge: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/zma.svg',
@@ -75,12 +75,12 @@ export const themeDynamics = [
             sideBarPopupBg: 'rgb(65,20,101)',
             alphaLayoutBg: 'rgba(12,3,3,0.8)',
             queueLayoutPopupBg: '#5d218c',
-            blurQueueBg: 'rgba(29,55,90,0.9019607843137255)',
+            blurQueueBg: 'hsla(0, 0%, 100%, 0.1)',
             purplePrimary: '#ed2b91',
             linkTextHover: '#fe63da',
             chartBgImgAlpha: 'hsla(0,0%,100%,0.9)',
             chartBoxBgAlpha: 'hsla(0, 0%, 100%, 0.05)',
-            linkText: '#757575',
+            linkText: '#97939c',
             alphaActiveSidebar: 'hsla(0, 0%, 100%, 0.1)',
             white: '#fff',
             grey: '#333',

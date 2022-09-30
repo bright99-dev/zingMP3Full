@@ -3,6 +3,16 @@
     .banner {
         position: relative;
         height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            z-index: 9;
+            color: var(--purple-primary);
+            font-size: 8rem;
+            font-family: var(--font-second);
+            font-weight: 700;
+        }
         .bg-blur,
         .bg-alpha,
         .bg-alppha1 {

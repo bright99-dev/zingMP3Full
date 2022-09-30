@@ -2,6 +2,7 @@
     width: var(--width-sidebar);
     height: 100%;
     // background-color: var(--sidebar-popup-bg);
+    overflow: hidden;
     background-color: transparent;
     transition: all 0.3s;
     display: flex;
@@ -161,6 +162,8 @@
 }
 @media screen and (max-width: 1200px) {
     .wrapper {
+        background-color: var(--sidebar-popup-bg);
+
         .logo {
             width: var(--width-sidebar) !important;
             background-image: url('https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.29/static/media/icon_zing_mp3_60.f6b51045.svg') !important;
