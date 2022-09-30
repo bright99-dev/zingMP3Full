@@ -26,7 +26,6 @@
             display: flex;
             flex-direction: column;
             .header {
-                width: calc(100% - var(--width-sidebar));
                 height: var(--height-logo);
                 background-color: transparent;
                 position: fixed;
@@ -80,6 +79,9 @@
     }
 }
 @media screen and (max-width: 1599px) {
+    .header {
+        width: calc(100% - var(--width-sidebar));
+    }
     .right-sidebar {
         position: fixed;
         margin-right: -100%;
@@ -87,6 +89,11 @@
             transition: all 0.5s ease-out;
             margin-right: 0;
         }
+    }
+}
+@media screen and (min-width: 1600px) {
+    .header {
+        width: calc(100% - var(--width-sidebar) - var(--width-right-sidebar));
     }
 }
 @media screen and (max-width: 876px) {
