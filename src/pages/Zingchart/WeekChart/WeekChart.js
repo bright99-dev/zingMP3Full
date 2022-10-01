@@ -31,7 +31,7 @@ function WeekChart({ data, onClick }) {
                     <div className={cx('bg-alpha')}></div>
                 </>
             )}
-            <h3 className={cx('title')}>Bảng Xếp Hạng Tuần</h3>
+            <h1 className={cx('title')}>Bảng Xếp Hạng Tuần</h1>
             <div className={cx('area')}>
                 {areas.map((area, index) => (
                     <WeekChartItem

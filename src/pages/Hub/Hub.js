@@ -49,7 +49,7 @@ function Hub() {
                     ></img>
                 </div>
                 <div className={cx('topic')}>
-                    <h3>Tâm Trạng Và Hoạt Động</h3>
+                    <h3 className={cx('title')}>Tâm Trạng Và Hoạt Động</h3>
                     <div className={cx('grid')}>
                         {topic.map((item) => (
                             <ItemTopic key={item.encodeId} data={item} type="topic" />

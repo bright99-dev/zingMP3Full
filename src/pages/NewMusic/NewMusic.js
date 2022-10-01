@@ -103,7 +103,7 @@ function NewMusic() {
                 )}
 
                 <div className={cx('header')}>
-                    <h3 className={cx('title')}>{data.title}</h3>
+                    <h1 className={cx('title')}>{data.title}</h1>
                     {isPlay && playlistId === data.sectionId ? (
                         <Button
                             circlem

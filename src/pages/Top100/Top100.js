@@ -27,7 +27,7 @@ function Top100() {
         return (
             <div className={cx('wrapper')}>
                 <div className={cx('banner')}>
-                    <h1>TOP 100</h1>
+                    <h1 className={cx('title')}>TOP 100</h1>
                     {!themeCurrent.backgroundImg && !themeCurrent.backgroundImgLarge && (
                         <>
                             <div className={cx('bg-blur')}></div>

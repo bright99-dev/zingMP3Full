@@ -24,7 +24,6 @@ export default function ThemModal() {
             </div>
             <div className={cx('content')}>
                 <div className={cx('section')}>
-                    <h3>Dynamic</h3>
                     <div className={cx('grid')}>
                         {themeDynamics.map((theme, index) => (
                             <ThemItem data={theme} key={index} />

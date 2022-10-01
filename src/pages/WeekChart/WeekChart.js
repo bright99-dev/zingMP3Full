@@ -35,9 +35,7 @@ function WeekChart() {
                     </>
                 )}
                 <div className={cx('header')}>
-                    <div className={cx('title')}>
-                        <h3>Bảng Xếp Hạng Tuần</h3>
-                    </div>
+                    <h1>Bảng Xếp Hạng Tuần</h1>
                     <div className={cx('tab')}>
                         <NavLink
                             className={(nav) => cx('tab-item', { active: nav.isActive })}

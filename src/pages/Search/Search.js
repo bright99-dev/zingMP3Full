@@ -67,7 +67,7 @@ function Search() {
         return (
             <div className={cx('wrapper')}>
                 <div className={cx('tab')}>
-                    <h3>Kết quả tìm kiếm </h3>
+                    <h3 className={cx('title')}>Kết quả tìm kiếm </h3>
                     <span
                         className={cx('btn', showAllTab && 'active')}
                         onClick={() => {

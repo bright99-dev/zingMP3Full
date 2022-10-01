@@ -109,7 +109,7 @@ function Decover() {
                 <Carousel data={result[0]} />
 
                 <div className={cx('new-release')}>
-                    <h3>{result[3].title}</h3>
+                    <h3 className={cx('title')}>{result[3].title}</h3>
                     <div className={cx('header')}>
                         <Button
                             roundeds={true}

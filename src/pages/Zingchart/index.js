@@ -104,7 +104,7 @@ function Zingchart() {
                 )}
 
                 <div className={cx('header')}>
-                    <h2>#zingchart</h2>
+                    <h1 className={cx('title')}>#zingchart</h1>
                     {result.RTChart.sectionId !== playlistId && (
                         <Button
                             circlem

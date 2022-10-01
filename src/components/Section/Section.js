@@ -10,7 +10,7 @@ function Section({ title, data, btn, children }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <h3>{title || 'Playlist/Album'}</h3>
+                <h3 className={cx('title')}>{title || 'Playlist/Album'}</h3>
                 {btn && (
                     <Link to={data.link} state={{ id: data.encodeId }} className={cx('category-link')}>
                         <span className={cx('btn-all')}>Tất cả</span>
