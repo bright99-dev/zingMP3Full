@@ -48,16 +48,6 @@ function Decover() {
         return sourceArray;
     };
 
-    const handleNewReleaseSong = () => {
-        setNewReleaseSong(true);
-        setNewReleaseAlbum(false);
-    };
-
-    const handleNewReleaseAlbum = () => {
-        setNewReleaseSong(false);
-        setNewReleaseAlbum(true);
-    };
-
     const handlePlaySong = (song, playlist, id) => {
         dispatch(setIsRadioPlay(false));
         dispatch(setCurrentTime(0));
@@ -97,6 +87,7 @@ function Decover() {
         request.get('/home').then((res) => {
             setIsLoading(false);
             setResult(res.data.items);
+            console.log(res.data);
             document.title = 'ZingMP3 | Nghe tải nhạc chất lượng cao trên desktop, mobile và ...';
         });
     }, []);
@@ -109,32 +100,39 @@ function Decover() {
                 <Carousel data={result[0]} />
 
                 <div className={cx('new-release')}>
-                    <h3 className={cx('title')}>{result[3].title}</h3>
+                    <h3 className={cx('title')}>{result[4].title}</h3>
                     <div className={cx('header')}>
                         <Button
                             roundeds={true}
                             className={cx('btn', newReleaseSong && 'active')}
-                            onClick={handleNewReleaseSong}
+                            onClick={() => {
+                                setNewReleaseSong(true);
+                                setNewReleaseAlbum(false);
+                            }}
                         >
-                            Bài hát
+                            TẤT CẢ
                         </Button>
                         <Button
                             roundeds={true}
-                            onClick={handleNewReleaseAlbum}
+                            onClick={() => {
+                                setNewReleaseSong(false);
+                                setNewReleaseAlbum(true);
+                            }}
                             className={cx('btn', newReleaseAlbum && 'active')}
                         >
-                            Album
+                            VIỆT NAM
                         </Button>
                     </div>
+
                     {newReleaseSong && (
                         <div className={cx('grid')}>
-                            {result[3].items[0].song.slice(0, 12).map((song, index) => (
+                            {result[4].items.all.slice(0, 12).map((song, index) => (
                                 <SongItemShort
                                     key={index}
                                     data={song}
                                     index={index}
                                     onClick={() =>
-                                        handlePlaySong(song, result[3].items[0].song, result[3].items[0].song.encodeId)
+                                        handlePlaySong(song, result[4].items.all, result[4].items.all.encodeId)
                                     }
                                 />
                             ))}
@@ -142,8 +140,15 @@ function Decover() {
                     )}
                     {newReleaseAlbum && (
                         <div className={cx('grid')}>
-                            {result[3].items[0].album.slice(0, 9).map((album, index) => (
-                                <Album key={album.encodeId} data={album} />
+                            {result[4].items.vPop.slice(0, 12).map((song, index) => (
+                                <SongItemShort
+                                    key={index}
+                                    data={song}
+                                    index={index}
+                                    onClick={() =>
+                                        handlePlaySong(song, result[4].items.vPop, result[4].items.vPop.encodeId)
+                                    }
+                                />
                             ))}
                         </div>
                     )}
