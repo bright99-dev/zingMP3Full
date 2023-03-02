@@ -98,7 +98,7 @@ function Decover() {
         return (
             <div className={cx('wrapper')}>
                 <Carousel data={result[0]} />
-
+                {/* 
                 <div className={cx('new-release')}>
                     <h3 className={cx('title')}>{result[4].title}</h3>
                     <div className={cx('header')}>
@@ -126,7 +126,7 @@ function Decover() {
 
                     {newReleaseSong && (
                         <div className={cx('grid')}>
-                            {result[4].items.all.slice(0, 12).map((song, index) => (
+                            {result[3].items.all.slice(0, 12).map((song, index) => (
                                 <SongItemShort
                                     key={index}
                                     data={song}
@@ -140,7 +140,7 @@ function Decover() {
                     )}
                     {newReleaseAlbum && (
                         <div className={cx('grid')}>
-                            {result[4].items.vPop.slice(0, 12).map((song, index) => (
+                            {result[3].items.vPop.slice(0, 12).map((song, index) => (
                                 <SongItemShort
                                     key={index}
                                     data={song}
@@ -152,7 +152,7 @@ function Decover() {
                             ))}
                         </div>
                     )}
-                </div>
+                </div> */}
 
                 {result.map(
                     (playlist, index) =>
