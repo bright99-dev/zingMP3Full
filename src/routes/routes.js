@@ -1,6 +1,5 @@
 import Discover from '~/pages/Discover';
 import Zingchart from '~/pages/Zingchart';
-import Radio from '~/pages/Radio';
 import NewMusic from '~/pages/NewMusic';
 import Hub from '~/pages/Hub';
 import Top100 from '~/pages/Top100';
@@ -19,10 +18,6 @@ const publicRoutes = [
     {
         path: '/zing-chart',
         component: Zingchart,
-    },
-    {
-        path: '/radio',
-        component: Radio,
     },
     {
         path: '/newmusic',

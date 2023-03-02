@@ -5,7 +5,6 @@ import classNames from 'classnames/bind';
 import styles from './Player.module.scss';
 import Button from '../../../components/Button';
 import request from '~/utils/httpRequest';
-import ReactHlsPlayer from 'react-hls-player';
 import Tippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';
 import { faWindows } from '@fortawesome/free-brands-svg-icons';
@@ -31,7 +30,6 @@ import {
     setRandom,
     setLoop,
     setVolume,
-    setIsRadioPlay,
     setCurrentIndexSong,
     setCurrentIndexSongRandom,
     setIsOpenSidebarRight,
@@ -55,11 +53,9 @@ function Player() {
     const playlistRandom = [...useSelector((state) => state.audio.playlistRandom)];
     const currentTime = useSelector((state) => state.audio.currentTime);
     const volume = useSelector((state) => state.audio.volume);
-    const srcRadio = useSelector((state) => state.audio.srcRadio);
     const isRadioPlay = useSelector((state) => state.audio.isRadioPlay);
     const audioRef = useRef();
     const volumeRef = useRef();
-    const radioRef = useRef();
 
     const handlePlaySong = () => {
         if (!isDisabled) {
@@ -72,18 +68,6 @@ function Player() {
                 dispatch(setIsPlay(true));
                 if (audioRef) {
                     audioRef.current.play();
-                }
-            }
-        } else if (isDisabled) {
-            if (isRadioPlay) {
-                dispatch(setIsRadioPlay(false));
-                if (radioRef) {
-                    radioRef.current.pause();
-                }
-            } else {
-                dispatch(setIsRadioPlay(true));
-                if (radioRef) {
-                    radioRef.current.play();
                 }
             }
         }
@@ -214,18 +198,15 @@ function Player() {
     const handleVolume = () => {
         dispatch(setVolume(volumeRef.current.value));
         audioRef.current.volume = volumeRef.current.value / 100;
-        radioRef.current.volume = volumeRef.current.value / 100;
     };
 
     const handleMute = () => {
         if (volume === 0) {
             dispatch(setVolume(20));
             audioRef.current.volume = 0.2;
-            radioRef.current.volume = 0.2;
         } else {
             dispatch(setVolume(0));
             audioRef.current.volume = 0;
-            radioRef.current.volume = 0;
         }
     };
     useEffect(() => {
@@ -233,12 +214,6 @@ function Player() {
             isPlay ? audioRef.current.play() : audioRef.current.pause();
         }
     }, [srcAudio, isPlay]);
-
-    useEffect(() => {
-        if (srcRadio !== '') {
-            isRadioPlay ? radioRef.current.play() : radioRef.current.pause();
-        }
-    }, [srcRadio, isRadioPlay]);
 
     useEffect(() => {
         if (currentSongId !== null && currentSongId !== '') {
@@ -380,7 +355,6 @@ function Player() {
                 }}
                 onEnded={handleOnEnd}
             />
-            <ReactHlsPlayer hidden src={srcRadio} autoPlay={isRadioPlay} playerRef={radioRef} volume={volume} />
         </div>
     );
 }
