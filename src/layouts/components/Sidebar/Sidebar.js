@@ -50,13 +50,6 @@ function Sidebar() {
                     play={true}
                     icon={<FontAwesomeIcon icon={faChartLine} />}
                 />
-                <SidebarItem
-                    title="Radio"
-                    to="/radio"
-                    icon={<FontAwesomeIcon icon={faRadio} />}
-                    liveicon={true}
-                    play={true}
-                />
             </div>
             <div className={cx('line')}>
                 <div className={cx('inner-line')}></div>
