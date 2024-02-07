@@ -7,14 +7,17 @@
     width: 100%;
     font-size: 2rem;
     line-height: 3;
+
     .loading-icon {
-        animation: spinner 3s linear infinite;
+        animation: spinner 1s linear infinite;
     }
 }
+
 @keyframes spinner {
     from {
         transform: translateY(-50%) rotate(0);
     }
+
     to {
         transform: translateY(-50%) rotate(360deg);
     }

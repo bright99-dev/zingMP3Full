@@ -15,6 +15,7 @@ import styles from './Header.module.scss';
 import { faVuejs } from '@fortawesome/free-brands-svg-icons';
 import Button from '~/components/Button';
 import { setIsExtendSidebar, setIsOpenThemModal } from '~/redux/audioSlice';
+
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -69,7 +70,7 @@ function Header() {
                 </Tippy>
                 <Button circlem="true" className={cx('icon', 'img')}>
                     <img
-                        src="https://s120-ava-talk-zmp3.zmdcdn.me/c/f/5/9/36/120/d7e2c9af9754c1305c6163278f0824c8.jpg"
+                        src="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.9.109/static/media/user-default.3ff115bb.png"
                         alt="logo"
                     />
                 </Button>
